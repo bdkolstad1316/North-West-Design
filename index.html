@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>North West Design — Custom Screenprinting & Embroidery in Clarkston, WA</title>
+<meta name="description" content="Family-owned custom apparel shop in Clarkston, WA since 2001. Screenprinting, embroidery, vinyl decals, and graphic design — done in-house. Call (509) 758-3043." />
+<meta name="theme-color" content="#d62828" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bevan&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ink: #141414;
+  --ink-soft: #2a2a2a;
+  --paper: #fbf7f0;
+  --paper-warm: #f3ecdd;
+  --rule: #1a1a1a;
+  --red: #d62828;        /* brand red — buttons, logo, large display text */
+  --red-deep: #a81d1d;   /* small-text red on light bg (passes WCAG AA) */
+  --red-light: #ee5050;  /* small-text red on dark bg (passes WCAG AA) */
+  --muted: #6b6357;
+  --kraft: #c9a87c;
+  --nav-h: 68px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: rgba(214, 40, 40, 0.15);
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+section { scroll-margin-top: var(--nav-h); }
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red-deep);   /* default — for light backgrounds */
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.eyebrow::before {
+  content: "";
+  width: 28px;
+  height: 2px;
+  background: currentColor;  /* match the eyebrow text color so the bar shifts with context */
+  display: inline-block;
+}
+/* Lighter red for eyebrows on dark sections so contrast clears WCAG AA */
+.calc .eyebrow,
+.contact .eyebrow {
+  color: var(--red-light);
+}
+
+h1, h2, h3 {
+  font-family: 'Bevan', Georgia, serif;
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+h2 { font-size: clamp(34px, 5vw, 56px); }
+h3 { font-size: 22px; }
+
+p { color: var(--ink-soft); }
+
+/* ===== NAV ===== */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--paper);
+  border-bottom: 1px solid #e8dfd0;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Bevan', serif;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: var(--ink);
+}
+.brand-mark {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+.brand-full { line-height: 1; }
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+.nav-links a {
+  color: var(--ink-soft);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--red); }
+
+/* Higher-specificity selectors so the CTA's color/bg aren't overridden by .nav-links a above */
+.nav-links a.nav-cta {
+  background: var(--red);
+  color: #ffffff;
+  padding: 11px 20px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.15);
+  transition: background 0.2s, transform 0.1s;
+}
+.nav-links a.nav-cta:hover {
+  background: var(--red-deep);
+  color: #ffffff;
+}
+.nav-links a.nav-cta:active { transform: translateY(1px); }
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+  position: relative;
+}
+.nav-toggle span::before,
+.nav-toggle span::after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+  left: 0;
+}
+.nav-toggle span::before { top: -7px; }
+.nav-toggle span::after { top: 7px; }
+
+/* ===== HERO ===== */
+.hero {
+  padding: 60px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.hero h1 {
+  font-size: clamp(56px, 9vw, 110px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  margin: 18px 0 24px;
+}
+.hero h1 .red { color: var(--red); }
+.hero h1 .strike {
+  text-decoration: line-through;
+  text-decoration-color: var(--red);
+  text-decoration-thickness: 4px;
+  color: var(--muted);
+  font-size: 0.55em;
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+.hero-sub {
+  font-size: 19px;
+  color: var(--ink-soft);
+  max-width: 520px;
+  margin-bottom: 32px;
+}
+.hero-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 26px;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 4px;
+  border: 2px solid var(--ink);
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+  min-height: 44px;
+}
+.btn-primary {
+  background: var(--red);
+  color: #fff;
+  border-color: var(--red);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.btn-primary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+.btn-primary:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0 var(--ink);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--ink);
+}
+.btn-outline:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.hero-photo {
+  position: relative;
+  aspect-ratio: 4/5;
+  border: 3px solid var(--ink);
+  box-shadow: 12px 12px 0 var(--red);
+  overflow: hidden;
+  background: var(--paper-warm);
+}
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-photo::after {
+  content: "EST. 2001";
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 6px 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid #e8dfd0;
+}
+.hero-stat .num {
+  font-family: 'Bevan', serif;
+  font-size: 36px;
+  color: var(--red);
+  line-height: 1;
+}
+.hero-stat .lbl {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+/* ===== SERVICES ===== */
+.services {
+  padding: 90px 0;
+  background: var(--paper-warm);
+  border-top: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+}
+.section-head {
+  margin-bottom: 56px;
+  max-width: 720px;
+}
+.section-head h2 { margin: 14px 0 16px; }
+.section-head p { font-size: 19px; color: var(--ink-soft); }
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.service-card {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  padding: 32px;
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.service-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 var(--red);
+}
+.service-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--ink);
+  color: var(--red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+.service-card h3 {
+  font-size: 26px;
+  margin-bottom: 12px;
+}
+.service-card p { font-size: 16px; }
+.service-num {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+/* ===== CALCULATOR ===== */
+.calc {
+  padding: 90px 0;
+  background: var(--ink);
+  color: var(--paper);
+}
+.calc h2 { color: var(--paper); }
+.calc h2 .accent { color: var(--red-light); }
+/* Higher specificity so the calc paragraph color isn't overridden by .section-head p */
+.calc .section-head p { color: #c4bcb0; max-width: 640px; }
+
+.calc-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 48px;
+  margin-top: 40px;
+  align-items: start;
+}
+.calc-controls {
+  background: #1f1f1f;
+  border: 2px solid #2e2a24;
+  padding: 32px;
+}
+.calc-field { margin-bottom: 22px; }
+.calc-field label {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #b3a896;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.calc-field input,
+.calc-field select {
+  width: 100%;
+  padding: 14px 16px;
+  background: var(--ink);
+  border: 2px solid #3d362c;
+  color: var(--paper);
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  transition: border-color 0.15s;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+.calc-field input:focus,
+.calc-field select:focus {
+  outline: none;
+  border-color: var(--red);
+}
+.calc-field select {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23d62828' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 44px;
+}
+.calc-hint {
+  font-size: 13px;
+  color: #b3a896;
+  font-style: italic;
+  margin-top: -10px;
+  margin-bottom: 22px;
+}
+
+.calc-results {
+  background: #1f1f1f;
+  border: 2px solid #2e2a24;
+  padding: 32px;
+}
+.calc-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #3d362c;
+}
+.calc-total-num {
+  font-family: 'Bevan', serif;
+  font-size: 42px;
+  color: var(--red);
+  line-height: 1;
+}
+.calc-total-lbl {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #b3a896;
+  font-weight: 600;
+}
+
+.size-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 60px;
+  gap: 14px;
+  align-items: center;
+  padding: 10px 0;
+}
+.size-lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--paper);
+  letter-spacing: 0.05em;
+}
+.size-bar-track {
+  height: 22px;
+  background: #2a2520;
+  position: relative;
+  overflow: hidden;
+}
+.size-bar-fill {
+  height: 100%;
+  background: var(--red);
+  transition: width 0.45s cubic-bezier(.4,0,.2,1);
+}
+.size-count {
+  font-family: 'Bevan', serif;
+  font-size: 22px;
+  color: var(--paper);
+  text-align: right;
+  line-height: 1;
+}
+
+.calc-actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.calc-actions .btn {
+  flex: 1;
+  min-width: 0;
+}
+.btn-light {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--paper);
+  box-shadow: 4px 4px 0 var(--red);
+}
+.btn-light:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--red);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--paper);
+  border-color: #3d362c;
+}
+.btn-ghost:hover {
+  border-color: var(--paper);
+}
+/* Stacked button: top label + secondary subtitle on a second line */
+.btn-stacked {
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 24px;
+  line-height: 1.15;
+}
+.btn-stacked-top {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.btn-stacked-sub {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  opacity: 0.78;
+}
+.copied-msg {
+  font-size: 13px;
+  color: var(--red);
+  font-weight: 600;
+  margin-top: 12px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.copied-msg.show { opacity: 1; }
+
+.empty-state {
+  padding: 32px 8px;
+  color: #8a8071;
+  font-size: 15px;
+  font-style: italic;
+  text-align: center;
+  border: 1px dashed #3d362c;
+  background: rgba(0,0,0,0.15);
+}
+.empty-state strong { color: var(--paper); font-style: normal; }
+#sizeRows.in .size-row { animation: rowFade 0.45s ease-out backwards; }
+#sizeRows.in .size-row:nth-child(1) { animation-delay: 0.00s; }
+#sizeRows.in .size-row:nth-child(2) { animation-delay: 0.06s; }
+#sizeRows.in .size-row:nth-child(3) { animation-delay: 0.12s; }
+#sizeRows.in .size-row:nth-child(4) { animation-delay: 0.18s; }
+#sizeRows.in .size-row:nth-child(5) { animation-delay: 0.24s; }
+#sizeRows.in .size-row:nth-child(6) { animation-delay: 0.30s; }
+@keyframes rowFade {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ===== GALLERY ===== */
+.gallery {
+  padding: 90px 0;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 48px;
+}
+.gallery-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  position: relative;
+  cursor: pointer;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-item.tall { aspect-ratio: 1; }
+.gallery-item.wide { aspect-ratio: 1; }
+
+/* ===== ABOUT ===== */
+.about {
+  padding: 90px 0;
+  background: var(--paper-warm);
+  border-top: 3px solid var(--ink);
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.about p {
+  font-size: 18px;
+  margin-bottom: 18px;
+}
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  margin-top: 32px;
+  background: var(--ink);
+  border: 2px solid var(--ink);
+}
+.stat-cell {
+  background: var(--paper);
+  padding: 24px 22px;
+}
+.stat-num {
+  font-family: 'Bevan', serif;
+  font-size: 38px;
+  color: var(--red);
+  line-height: 1;
+}
+.stat-lbl {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-top: 8px;
+}
+.about-photo {
+  border: 3px solid var(--ink);
+  box-shadow: -10px 10px 0 var(--red);
+  aspect-ratio: 4/5;
+  overflow: hidden;
+}
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ===== CONTACT ===== */
+.contact {
+  padding: 90px 0;
+  background: var(--ink);
+  color: var(--paper);
+}
+.contact h2 { color: var(--paper); }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  margin-top: 40px;
+}
+.contact-info p { color: #c4bcb0; font-size: 18px; margin-bottom: 28px; max-width: 460px; }
+.contact-block {
+  margin-bottom: 26px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid #3d362c;
+}
+.contact-block:last-child { border-bottom: none; }
+.contact-lbl {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #b3a896;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.contact-val {
+  font-family: 'Bevan', serif;
+  font-size: 28px;
+  line-height: 1.1;
+  color: var(--paper);
+}
+.contact-val a { color: var(--paper); transition: color 0.2s; }
+.contact-val a:hover { color: var(--red); }
+.contact-sub {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #b3a896;
+  margin-top: 6px;
+  font-weight: 400;
+}
+
+.contact-card {
+  background: #1f1f1f;
+  border: 2px solid #2e2a24;
+  padding: 36px;
+}
+.contact-card h3 {
+  color: var(--paper);
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+.contact-card p { color: #c4bcb0; font-size: 16px; margin-bottom: 24px; }
+.contact-card .btn {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #0a0a0a;
+  color: #b3a896;
+  padding: 36px 0;
+  font-size: 14px;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer a { color: var(--red-light); }
+.footer a:hover { color: var(--paper); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .hero-grid,
+  .calc-wrap,
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .service-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-item.wide { grid-column: span 2; }
+  .gallery-item.tall { grid-row: auto; aspect-ratio: 1; }
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-links a.nav-cta {
+    padding: 9px 14px;
+    font-size: 13px;
+  }
+  /* On narrow phones the mark is the whole brand — drop the wordmark text */
+  .brand-full { display: none; }
+  .brand-mark { height: 38px; }
+  .brand { gap: 0; }
+  .hero { padding: 40px 0 60px; }
+  .hero-photo { box-shadow: 8px 8px 0 var(--red); }
+  .about-photo { box-shadow: -6px 6px 0 var(--red); }
+  .hero-stats { gap: 20px; flex-wrap: wrap; }
+  .hero-stat .num { font-size: 28px; }
+
+  .nav-links.open {
+    display: flex;
+    position: absolute;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: var(--paper);
+    padding: 20px 24px;
+    border-bottom: 2px solid var(--ink);
+    gap: 0;
+  }
+  .nav-links.open a {
+    padding: 14px 0;
+    font-size: 17px;
+    border-bottom: 1px solid #e8dfd0;
+  }
+  .nav-links.open a:last-child { border-bottom: none; }
+
+  /* Disable hover effects on touch */
+  .service-card:hover,
+  .btn-primary:hover {
+    transform: none;
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+  .service-card:hover { box-shadow: none; }
+  .gallery-item:hover img { transform: none; }
+}
+
+@media (max-width: 480px) {
+  body { font-size: 16px; }
+  .container { padding: 0 18px; }
+  .services, .calc, .gallery, .about, .contact { padding: 64px 0; }
+  .service-card, .calc-controls, .calc-results, .contact-card { padding: 24px; }
+  .hero-cta .btn { width: 100%; }
+  .gallery-grid { grid-template-columns: 1fr; gap: 10px; }
+  .gallery-item.wide { grid-column: auto; aspect-ratio: 1; }
+  .calc-actions { flex-direction: column; }
+  .calc-actions .btn { width: 100%; }
+}
+
+/* ===== ANIMATIONS ===== */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s, transform 0.7s;
+}
+.fade-up.in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up { opacity: 1; transform: none; }
+  .size-bar-fill { transition: none; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="brand" aria-label="North West Design — home">
+      <img src="images/nwd-mark-sm.png" alt="" class="brand-mark" width="100" height="40" />
+      <span class="brand-full">NORTH WEST DESIGN</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#estimator">Order Estimator</a>
+      <a href="#work">Recent Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+15097583043" class="nav-cta">(509) 758-3043</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span></button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Clarkston, WA · Family-owned since 2001</span>
+      <h1>
+        <span class="strike">Iron-on letters from the mall.</span>
+        Put your logo on <span class="red">something good.</span>
+      </h1>
+      <p class="hero-sub">
+        Custom screenprinting, embroidery, vinyl, and graphic design — done in-house, by people who answer their own phones.
+      </p>
+      <div class="hero-cta">
+        <a href="#estimator" class="btn btn-primary">Estimate an Order</a>
+        <a href="tel:+15097583043" class="btn btn-outline">(509) 758-3043</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">25+</div><div class="lbl">Years in Clarkston</div></div>
+        <div class="hero-stat"><div class="num">100%</div><div class="lbl">In-house Production</div></div>
+        <div class="hero-stat"><div class="num">1&ndash;10k</div><div class="lbl">Order Range</div></div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="images/sp-05.jpg" alt="Stack of finished custom-printed t-shirts at North West Design" loading="eager" />
+    </div>
+  </div>
+</header>
+
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="eyebrow">What We Do</span>
+      <h2>Four things, all done right.</h2>
+      <p>We're not trying to be everything. We do custom apparel and graphics for the Lewis-Clark Valley and beyond — and we've been doing it since the year the iPod came out.</p>
+    </div>
+    <div class="service-grid">
+
+      <article class="service-card fade-up">
+        <span class="service-num">01</span>
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+        </div>
+        <h3>Screenprinting</h3>
+        <p>One shirt or ten thousand. Sharp inks, durable cure, color matched to whatever your designer dreamed up. The thing we're known for.</p>
+      </article>
+
+      <article class="service-card fade-up">
+        <span class="service-num">02</span>
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg>
+        </div>
+        <h3>Embroidery</h3>
+        <p>Hats, polos, jackets, blankets. Stitched in-house — not farmed out. It looks professional because it is.</p>
+      </article>
+
+      <article class="service-card fade-up">
+        <span class="service-num">03</span>
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8M12 14v8M2 12h8M14 12h8"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>Vinyl Decals</h3>
+        <p>Truck windows, helmets, tumblers, storefronts. If the surface is smooth, we'll put your logo on it.</p>
+      </article>
+
+      <article class="service-card fade-up">
+        <span class="service-num">04</span>
+        <div class="service-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+        </div>
+        <h3>Graphic Design</h3>
+        <p>No logo yet? Got one but it looks like clip art? Our in-house designer can help. (Honest opinions are free.)</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CALCULATOR ===== -->
+<section class="calc" id="estimator">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="eyebrow">Order Estimator</span>
+      <h2>Sizing 50 shirts? <span class="accent">Don't&nbsp;guess.</span></h2>
+      <p class="calc-sub">Tell us how many you need and who they're for. We'll suggest a size breakdown that won't leave you with a stack of unworn 4XLs in your garage.</p>
+    </div>
+
+    <div class="calc-wrap">
+
+      <div class="calc-controls fade-up">
+        <div class="calc-field">
+          <label for="qty">Total Quantity</label>
+          <input type="number" id="qty" min="1" max="10000" value="50" inputmode="numeric" />
+        </div>
+
+        <div class="calc-field">
+          <label for="audience">Audience</label>
+          <select id="audience">
+            <option value="adult-unisex">Adult Unisex (default mix)</option>
+            <option value="mens">Men's / Construction Crew</option>
+            <option value="womens">Women's Fit</option>
+            <option value="youth">Youth (kids' team)</option>
+            <option value="athletic">Athletic Event / Fun Run</option>
+            <option value="corporate">Corporate Office</option>
+          </select>
+        </div>
+
+        <p class="calc-hint">Mix is based on industry-standard distributions. Real orders vary — these are starting points, not gospel. Tell us about your group and we'll dial it in.</p>
+
+        <div class="calc-actions">
+          <button id="calcBtn" class="btn btn-light btn-stacked" type="button">
+            <span class="btn-stacked-top">CALCULATE</span>
+            <span class="btn-stacked-sub">SIZE BREAKDOWN</span>
+          </button>
+          <a href="tel:+15097583043" class="btn btn-ghost btn-stacked">
+            <span class="btn-stacked-top">CALL US</span>
+            <span class="btn-stacked-sub">(509) 758-3043</span>
+          </a>
+        </div>
+        <div id="copiedMsg" class="copied-msg">✓ Breakdown copied to clipboard</div>
+      </div>
+
+      <div class="calc-results fade-up">
+        <div class="calc-total">
+          <div>
+            <span class="calc-total-num" id="totalNum">—</span>
+            <span class="calc-total-lbl" style="margin-left: 12px;" id="audienceLbl">Awaiting calculation</span>
+          </div>
+          <button id="copyBtn" class="btn btn-ghost" style="padding: 10px 16px; font-size: 13px; display: none;" type="button">Copy</button>
+        </div>
+        <div id="sizeRows" class="empty">
+          <div class="empty-state">Enter your quantity and audience, then press <strong>Calculate</strong>.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="gallery" id="work">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="eyebrow">Recent Work</span>
+      <h2>Stuff we made for actual people.</h2>
+      <p>A small slice of what's come out of the shop lately. The rest is on backs and ball caps all over the Valley.</p>
+    </div>
+    <div class="gallery-grid">
+      <a class="gallery-item tall fade-up" href="images/sp-02.jpg" target="_blank" rel="noopener"><img src="images/sp-02.jpg" alt="Custom screenprinted apparel" loading="lazy" /></a>
+      <a class="gallery-item fade-up" href="images/sp-01.jpg" target="_blank" rel="noopener"><img src="images/sp-01.jpg" alt="Echo Zone screenprinted shirts" loading="lazy" /></a>
+      <a class="gallery-item fade-up" href="images/em-01.jpg" target="_blank" rel="noopener"><img src="images/em-01.jpg" alt="Embroidered apparel sample" loading="lazy" /></a>
+      <a class="gallery-item fade-up" href="images/sp-03.jpg" target="_blank" rel="noopener"><img src="images/sp-03.jpg" alt="Custom screenprinting work" loading="lazy" /></a>
+      <a class="gallery-item fade-up" href="images/em-02.jpg" target="_blank" rel="noopener"><img src="images/em-02.jpg" alt="Embroidered jacket sample" loading="lazy" /></a>
+      <a class="gallery-item fade-up" href="images/sp-04.jpg" target="_blank" rel="noopener"><img src="images/sp-04.jpg" alt="Screenprinted shirt order" loading="lazy" /></a>
+      <a class="gallery-item fade-up" href="images/em-03.jpg" target="_blank" rel="noopener"><img src="images/em-03.jpg" alt="Embroidered hat sample" loading="lazy" /></a>
+      <a class="gallery-item fade-up" href="images/sp-06.jpg" target="_blank" rel="noopener"><img src="images/sp-06.jpg" alt="Custom screenprinted apparel batch" loading="lazy" /></a>
+      <a class="gallery-item fade-up" href="images/em-04.jpg" target="_blank" rel="noopener"><img src="images/em-04.jpg" alt="Embroidered apparel detail" loading="lazy" /></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="fade-up">
+      <span class="eyebrow">Who We Are</span>
+      <h2 style="margin: 14px 0 24px;">Family shop. Twenty-five years. One zip code.</h2>
+      <p>We've been a family-owned shop in Clarkston since 2001, working out of a building just off Fleshman Way. We print t-shirts, embroider ball caps, cut vinyl, and design logos for everyone from little league teams to fun runs to local businesses that need a thousand hoodies by Friday.</p>
+      <p>We do the work in-house. We answer our own phones. And we'll tell you straight if your idea isn't going to print well. That's it. That's the pitch.</p>
+
+      <div class="about-stats">
+        <div class="stat-cell"><div class="stat-num">2001</div><div class="stat-lbl">Year We Opened</div></div>
+        <div class="stat-cell"><div class="stat-num">100%</div><div class="stat-lbl">Family-Owned</div></div>
+        <div class="stat-cell"><div class="stat-num">In-House</div><div class="stat-lbl">All Production</div></div>
+        <div class="stat-cell"><div class="stat-num">Quick</div><div class="stat-lbl">Turnaround</div></div>
+      </div>
+    </div>
+    <div class="about-photo fade-up">
+      <img src="images/sp-04.jpg" alt="North West Design's print work, Clarkston, WA" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head fade-up">
+      <span class="eyebrow">Get in Touch</span>
+      <h2>Stop by, or just call.</h2>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info fade-up">
+        <p>We answer fast and we don't farm out the work. Send a file, sketch on a napkin, or describe it over the phone — we've worked with all of it.</p>
+
+        <div class="contact-block">
+          <div class="contact-lbl">Phone</div>
+          <div class="contact-val"><a href="tel:+15097583043">(509) 758-3043</a></div>
+          <span class="contact-sub">Mon–Fri, 8a–5p</span>
+        </div>
+
+        <div class="contact-block">
+          <div class="contact-lbl">Shop</div>
+          <div class="contact-val"><a href="https://www.google.com/maps/place/1142+16th+Ave,+Clarkston,+WA+99403/@46.3997932,-117.0560886,17z" target="_blank" rel="noopener">1142 16th Ave<br/>Clarkston, WA 99403</a></div>
+          <span class="contact-sub">Just off Fleshman Way</span>
+        </div>
+
+        <div class="contact-block">
+          <div class="contact-lbl">Bill Pay</div>
+          <div class="contact-val" style="font-size: 18px; font-family: 'Inter', sans-serif; font-weight: 600;"><a href="https://northwestdesign.securepayments.cardpointe.com/pay" target="_blank" rel="noopener">Pay your invoice online →</a></div>
+        </div>
+      </div>
+
+      <div class="contact-card fade-up">
+        <h3>Ready to Print?</h3>
+        <p>Easiest way to get started: pick up the phone. We'll talk through your project, give you a real quote, and get you on the calendar.</p>
+        <a href="tel:+15097583043" class="btn btn-primary">Call (509) 758-3043</a>
+        <a href="#estimator" class="btn btn-outline" style="background: transparent; color: var(--paper); border-color: var(--paper);">Use the Order Estimator</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div>© <span id="year"></span> North West Design · 1142 16th Ave, Clarkston, WA · (509) 758-3043</div>
+    <div>Made with care by <a href="https://www.kd70.com">KD70</a></div>
+  </div>
+</footer>
+
+<script>
+// ===== NAV TOGGLE =====
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+// ===== YEAR =====
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// ===== FADE UP =====
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+// ===== SIZE CALCULATOR =====
+// Industry-standard distribution percentages by audience type.
+// Source: averaged from major blank-apparel suppliers (SanMar, alphabroder, S&S Activewear).
+const DISTRIBUTIONS = {
+  'adult-unisex': { label: 'Adult Unisex',   sizes: ['S','M','L','XL','2XL','3XL'],         pct: [7, 25, 30, 22, 11, 5] },
+  'mens':         { label: "Men's / Crew",   sizes: ['S','M','L','XL','2XL','3XL'],         pct: [5, 20, 30, 25, 14, 6] },
+  'womens':       { label: "Women's Fit",    sizes: ['XS','S','M','L','XL','2XL'],          pct: [8, 22, 30, 25, 11, 4] },
+  'youth':        { label: 'Youth',          sizes: ['YXS','YS','YM','YL','YXL'],           pct: [5, 22, 35, 28, 10] },
+  'athletic':     { label: 'Athletic Event', sizes: ['S','M','L','XL','2XL','3XL'],         pct: [15, 30, 28, 17, 8, 2] },
+  'corporate':    { label: 'Corporate',      sizes: ['S','M','L','XL','2XL','3XL'],         pct: [8, 22, 30, 22, 12, 6] }
+};
+
+function distribute(total, key) {
+  const d = DISTRIBUTIONS[key];
+  // Multiply, get fractional parts, and use largest-remainder method to make sums match exactly.
+  const raw = d.pct.map(p => total * p / 100);
+  const floored = raw.map(r => Math.floor(r));
+  let used = floored.reduce((a, b) => a + b, 0);
+  const remainders = raw.map((r, i) => ({ i, frac: r - Math.floor(r) }));
+  remainders.sort((a, b) => b.frac - a.frac);
+  const out = floored.slice();
+  let r = 0;
+  while (used < total) {
+    out[remainders[r % remainders.length].i] += 1;
+    used += 1;
+    r += 1;
+  }
+  // If somehow over, trim from smallest
+  while (used > total) {
+    let minIdx = -1;
+    for (let i = 0; i < out.length; i++) {
+      if (out[i] > 0 && (minIdx === -1 || out[i] < out[minIdx])) minIdx = i;
+    }
+    out[minIdx] -= 1;
+    used -= 1;
+  }
+  return { sizes: d.sizes, counts: out, label: d.label };
+}
+
+const qtyEl = document.getElementById('qty');
+const audEl = document.getElementById('audience');
+const totalNumEl = document.getElementById('totalNum');
+const audienceLblEl = document.getElementById('audienceLbl');
+const sizeRowsEl = document.getElementById('sizeRows');
+const copyBtn = document.getElementById('copyBtn');
+const calcBtn = document.getElementById('calcBtn');
+const copiedMsg = document.getElementById('copiedMsg');
+
+let lastResult = null;
+
+function calculate() {
+  let qty = parseInt(qtyEl.value, 10);
+  if (!qty || qty < 1) qty = 1;
+  if (qty > 10000) qty = 10000;
+  qtyEl.value = qty;
+  const result = distribute(qty, audEl.value);
+  lastResult = { qty, ...result };
+  totalNumEl.textContent = qty.toLocaleString() + (qty === 1 ? ' shirt' : ' shirts');
+  audienceLblEl.textContent = result.label;
+  const max = Math.max(...result.counts, 1);
+  sizeRowsEl.classList.remove('empty', 'in');
+  sizeRowsEl.innerHTML = result.sizes.map((sz, i) => {
+    const c = result.counts[i];
+    const w = (c / max) * 100;
+    return `<div class="size-row">
+      <span class="size-lbl">${sz}</span>
+      <div class="size-bar-track"><div class="size-bar-fill" style="width:${w}%"></div></div>
+      <span class="size-count">${c}</span>
+    </div>`;
+  }).join('');
+  // force reflow so the animation re-fires on subsequent calculations
+  void sizeRowsEl.offsetWidth;
+  sizeRowsEl.classList.add('in');
+  copyBtn.style.display = 'inline-flex';
+}
+
+function buildText() {
+  if (!lastResult) return '';
+  const rows = lastResult.sizes.map((sz, i) =>
+    `  ${sz.padEnd(4)} ${lastResult.counts[i]}`
+  ).join('\n');
+  return `North West Design — Order Estimate
+Quantity: ${lastResult.qty} ${lastResult.qty === 1 ? 'shirt' : 'shirts'}
+Audience: ${lastResult.label}
+
+Size breakdown:
+${rows}
+
+This is an estimate based on standard distributions — actual order can be adjusted.`;
+}
+
+async function copyToClipboard(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch (e) {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+  }
+}
+
+copyBtn.addEventListener('click', async () => {
+  if (!lastResult) return;
+  await copyToClipboard(buildText());
+  copiedMsg.classList.add('show');
+  setTimeout(() => copiedMsg.classList.remove('show'), 2400);
+});
+
+calcBtn.addEventListener('click', calculate);
+
+// Pressing Enter in the quantity field triggers Calculate (no accidental form submit, no live updates)
+qtyEl.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    calculate();
+  }
+});
+</script>
+
+</body>
+</html>
