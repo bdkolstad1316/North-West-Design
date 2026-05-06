@@ -5,25 +5,34 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>North West Design — Custom Screenprinting & Embroidery in Clarkston, WA</title>
 <meta name="description" content="Family-owned custom apparel shop in Clarkston, WA since 2001. Screenprinting, embroidery, vinyl decals, and graphic design — done in-house. Call (509) 758-3043." />
-<meta name="theme-color" content="#d62828" />
+<meta name="theme-color" content="#156d75" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bevan&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --ink: #141414;
-  --ink-soft: #2a2a2a;
-  --paper: #fbf7f0;
-  --paper-warm: #f3ecdd;
-  --rule: #1a1a1a;
-  --red: #d62828;        /* brand red — buttons, logo, large display text */
-  --red-deep: #a81d1d;   /* small-text red on light bg (passes WCAG AA) */
-  --red-light: #ee5050;  /* small-text red on dark bg (passes WCAG AA) */
-  --muted: #6b6357;
-  --kraft: #c9a87c;
-  --nav-h: 68px;
+  /* Kraft + ink poster palette */
+  --paper: #f1e6cc;        /* warm kraft cream */
+  --paper-deep: #e3d3ae;   /* deeper kraft */
+  --ink: #1d1814;          /* warm near-black */
+  --ink-soft: #3a3128;
+  --rule: #2a2218;
+
+  /* Two screen-print "spot inks" */
+  --teal: #156d75;         /* deep ink-teal */
+  --teal-deep: #0e555c;
+  --teal-light: #4ab1bb;   /* for small text on dark */
+
+  --rust: #a84922;         /* warm rust orange — darkened to clear WCAG AA on cream */
+  --rust-deep: #8b3c1c;    /* deeper rust for small text on lighter kraft */
+  --rust-light: #e8704c;   /* for small text on dark */
+
+  --mustard: #d8a13e;      /* secondary accent */
+
+  --muted: #7a6f5e;
+  --nav-h: 70px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,19 +40,23 @@
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
   font-size: 17px;
-  line-height: 1.6;
-  color: var(--ink);
+  line-height: 1.55;
+  color: var(--ink-soft);
   background: var(--paper);
+  /* subtle paper grain */
+  background-image:
+    radial-gradient(rgba(28,24,20,0.025) 1px, transparent 1px),
+    radial-gradient(rgba(28,24,20,0.018) 1px, transparent 1px);
+  background-size: 4px 4px, 11px 11px;
+  background-position: 0 0, 2px 2px;
   -webkit-font-smoothing: antialiased;
-  -webkit-tap-highlight-color: rgba(214, 40, 40, 0.15);
+  -webkit-tap-highlight-color: rgba(196, 88, 43, 0.18);
 }
 
 img { max-width: 100%; display: block; }
-
 a { color: inherit; text-decoration: none; }
-
 section { scroll-margin-top: var(--nav-h); }
 
 .container {
@@ -53,38 +66,43 @@ section { scroll-margin-top: var(--nav-h); }
 }
 
 .eyebrow {
+  font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--red-deep);   /* default — for light backgrounds */
+  color: var(--rust-deep);
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 .eyebrow::before {
   content: "";
-  width: 28px;
-  height: 2px;
-  background: currentColor;  /* match the eyebrow text color so the bar shifts with context */
+  width: 14px;
+  height: 14px;
+  background: currentColor;
   display: inline-block;
+  border-radius: 50%;
 }
-/* Lighter red for eyebrows on dark sections so contrast clears WCAG AA */
-.calc .eyebrow,
-.contact .eyebrow {
-  color: var(--red-light);
+.eyebrow::after {
+  content: "";
+  flex: 0 0 28px;
+  height: 1px;
+  background: currentColor;
+  display: inline-block;
 }
 
 h1, h2, h3 {
-  font-family: 'Bevan', Georgia, serif;
+  font-family: 'Anton', 'Impact', sans-serif;
   font-weight: 400;
-  line-height: 1.02;
-  letter-spacing: -0.01em;
+  line-height: 0.94;
+  letter-spacing: 0.005em;
   color: var(--ink);
+  text-transform: uppercase;
 }
 
-h2 { font-size: clamp(34px, 5vw, 56px); }
-h3 { font-size: 22px; }
+h2 { font-size: clamp(40px, 5.5vw, 72px); }
+h3 { font-size: 28px; letter-spacing: 0.02em; }
 
 p { color: var(--ink-soft); }
 
@@ -94,7 +112,7 @@ p { color: var(--ink-soft); }
   top: 0;
   z-index: 100;
   background: var(--paper);
-  border-bottom: 1px solid #e8dfd0;
+  border-bottom: 2px solid var(--ink);
   height: var(--nav-h);
   display: flex;
   align-items: center;
@@ -109,9 +127,6 @@ p { color: var(--ink-soft); }
   display: flex;
   align-items: center;
   gap: 14px;
-  font-family: 'Bevan', serif;
-  font-size: 20px;
-  letter-spacing: 0.02em;
   white-space: nowrap;
   color: var(--ink);
 }
@@ -120,37 +135,51 @@ p { color: var(--ink-soft); }
   width: auto;
   display: block;
 }
-.brand-full { line-height: 1; }
+.brand-full {
+  font-family: 'Anton', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
 .nav-links {
   display: flex;
-  gap: 32px;
+  gap: 30px;
   align-items: center;
-  font-size: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
   font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 .nav-links a {
   color: var(--ink-soft);
-  transition: color 0.2s;
+  transition: color 0.15s;
 }
-.nav-links a:hover { color: var(--red); }
+.nav-links a:hover { color: var(--rust); }
 
-/* Higher-specificity selectors so the CTA's color/bg aren't overridden by .nav-links a above */
 .nav-links a.nav-cta {
-  background: var(--red);
-  color: #ffffff;
-  padding: 11px 20px;
-  border-radius: 4px;
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: 0.01em;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.15);
-  transition: background 0.2s, transform 0.1s;
+  background: var(--teal);
+  color: var(--paper);
+  padding: 11px 18px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  border: 2px solid var(--teal);
+  box-shadow: 3px 3px 0 var(--rust);
+  transition: transform 0.12s, box-shadow 0.12s;
 }
 .nav-links a.nav-cta:hover {
-  background: var(--red-deep);
-  color: #ffffff;
+  background: var(--teal-deep);
+  color: var(--paper);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--rust);
 }
-.nav-links a.nav-cta:active { transform: translateY(1px); }
+.nav-links a.nav-cta:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 var(--rust);
+}
+
 .nav-toggle {
   display: none;
   background: none;
@@ -183,34 +212,36 @@ p { color: var(--ink-soft); }
 
 /* ===== HERO ===== */
 .hero {
-  padding: 60px 0 80px;
+  padding: 70px 0 90px;
   position: relative;
   overflow: hidden;
 }
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1.05fr 1fr;
   gap: 56px;
   align-items: center;
 }
 .hero h1 {
-  font-size: clamp(56px, 9vw, 110px);
-  line-height: 0.92;
-  letter-spacing: -0.02em;
-  margin: 18px 0 24px;
+  font-size: clamp(64px, 11vw, 144px);
+  line-height: 0.86;
+  margin: 22px 0 28px;
+  letter-spacing: 0.005em;
 }
-.hero h1 .red { color: var(--red); }
+.hero h1 .rust { color: var(--rust); }
+.hero h1 .teal { color: var(--teal); }
 .hero h1 .strike {
   text-decoration: line-through;
-  text-decoration-color: var(--red);
+  text-decoration-color: var(--rust);
   text-decoration-thickness: 4px;
   color: var(--muted);
-  font-size: 0.55em;
+  font-size: 0.32em;
   display: block;
-  font-family: 'Inter', sans-serif;
+  font-family: 'JetBrains Mono', monospace;
+  text-transform: none;
   font-weight: 400;
   letter-spacing: 0;
-  margin-bottom: 8px;
+  margin-bottom: 14px;
   line-height: 1;
 }
 .hero-sub {
@@ -218,40 +249,43 @@ p { color: var(--ink-soft); }
   color: var(--ink-soft);
   max-width: 520px;
   margin-bottom: 32px;
+  line-height: 1.55;
 }
 .hero-cta {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
 }
+
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   padding: 16px 26px;
+  font-family: 'JetBrains Mono', monospace;
   font-weight: 600;
-  font-size: 15px;
-  border-radius: 4px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   border: 2px solid var(--ink);
   cursor: pointer;
-  transition: all 0.15s;
-  font-family: inherit;
-  min-height: 44px;
+  transition: all 0.13s;
+  min-height: 48px;
 }
 .btn-primary {
-  background: var(--red);
-  color: #fff;
-  border-color: var(--red);
-  box-shadow: 4px 4px 0 var(--ink);
+  background: var(--rust);
+  color: var(--paper);
+  border-color: var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
 }
 .btn-primary:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--ink);
+  box-shadow: 7px 7px 0 var(--ink);
 }
 .btn-primary:active {
-  transform: translate(2px, 2px);
-  box-shadow: 0px 0px 0 var(--ink);
+  transform: translate(3px, 3px);
+  box-shadow: 0 0 0 var(--ink);
 }
 .btn-outline {
   background: transparent;
@@ -262,68 +296,108 @@ p { color: var(--ink-soft); }
   color: var(--paper);
 }
 
+/* Misregistered-ink hero photo: the photo plus a teal "ghost" pass behind it */
 .hero-photo {
   position: relative;
   aspect-ratio: 4/5;
-  border: 3px solid var(--ink);
-  box-shadow: 12px 12px 0 var(--red);
-  overflow: hidden;
-  background: var(--paper-warm);
 }
-.hero-photo img {
+.hero-photo .photo-frame {
+  position: absolute;
+  inset: 0;
+  border: 3px solid var(--ink);
+  overflow: hidden;
+  z-index: 2;
+  background: var(--paper-deep);
+}
+.hero-photo .photo-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.hero-photo::after {
-  content: "EST. 2001";
+.hero-photo .photo-ghost {
+  position: absolute;
+  inset: 0;
+  background: var(--teal);
+  transform: translate(14px, 14px);
+  z-index: 1;
+}
+.hero-photo .photo-ghost::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--rust);
+  mix-blend-mode: multiply;
+  opacity: 0.4;
+  transform: translate(-7px, -7px);
+}
+.hero-photo .photo-tag {
   position: absolute;
   top: 14px;
   right: 14px;
-  background: var(--ink);
-  color: var(--paper);
-  padding: 6px 12px;
+  background: var(--mustard);
+  color: var(--ink);
+  padding: 6px 10px 5px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  letter-spacing: 0.1em;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  z-index: 3;
+  border: 1.5px solid var(--ink);
+  text-transform: uppercase;
 }
 
 .hero-stats {
   display: flex;
-  gap: 32px;
-  margin-top: 40px;
+  gap: 36px;
+  margin-top: 44px;
   padding-top: 32px;
-  border-top: 1px solid #e8dfd0;
+  border-top: 2px solid var(--ink);
 }
 .hero-stat .num {
-  font-family: 'Bevan', serif;
-  font-size: 36px;
-  color: var(--red);
+  font-family: 'Anton', sans-serif;
+  font-size: 44px;
+  color: var(--teal);
   line-height: 1;
+  letter-spacing: 0.02em;
 }
 .hero-stat .lbl {
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted);
-  margin-top: 6px;
-  font-weight: 600;
+  color: var(--ink-soft);
+  margin-top: 8px;
+  font-weight: 500;
 }
+
+/* ===== SECTION HEADS ===== */
+.section-head {
+  margin-bottom: 56px;
+  max-width: 740px;
+}
+.section-head h2 { margin: 16px 0 16px; }
+.section-head p { font-size: 19px; color: var(--ink-soft); }
 
 /* ===== SERVICES ===== */
 .services {
   padding: 90px 0;
-  background: var(--paper-warm);
+  background: var(--paper-deep);
   border-top: 3px solid var(--ink);
   border-bottom: 3px solid var(--ink);
+  position: relative;
 }
-.section-head {
-  margin-bottom: 56px;
-  max-width: 720px;
+.services::before {
+  /* a decorative dot row at the top */
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 24px;
+  right: 24px;
+  height: 6px;
+  background-image: radial-gradient(circle, var(--ink) 1.5px, transparent 1.6px);
+  background-size: 14px 6px;
+  background-repeat: repeat-x;
 }
-.section-head h2 { margin: 14px 0 16px; }
-.section-head p { font-size: 19px; color: var(--ink-soft); }
-
 .service-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -334,35 +408,36 @@ p { color: var(--ink-soft); }
   border: 2px solid var(--ink);
   padding: 32px;
   position: relative;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.18s, box-shadow 0.18s;
 }
 .service-card:hover {
   transform: translate(-3px, -3px);
-  box-shadow: 6px 6px 0 var(--red);
+  box-shadow: 6px 6px 0 var(--teal);
 }
 .service-icon {
-  width: 52px;
-  height: 52px;
+  width: 56px;
+  height: 56px;
   background: var(--ink);
-  color: var(--red);
+  color: var(--mustard);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 22px;
 }
 .service-card h3 {
-  font-size: 26px;
   margin-bottom: 12px;
+  letter-spacing: 0.02em;
 }
 .service-card p { font-size: 16px; }
 .service-num {
   position: absolute;
-  top: 24px;
+  top: 22px;
   right: 28px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  color: var(--muted);
-  letter-spacing: 0.1em;
+  font-size: 11px;
+  color: var(--rust);
+  letter-spacing: 0.12em;
+  font-weight: 600;
 }
 
 /* ===== CALCULATOR ===== */
@@ -370,11 +445,12 @@ p { color: var(--ink-soft); }
   padding: 90px 0;
   background: var(--ink);
   color: var(--paper);
+  position: relative;
 }
 .calc h2 { color: var(--paper); }
-.calc h2 .accent { color: var(--red-light); }
-/* Higher specificity so the calc paragraph color isn't overridden by .section-head p */
-.calc .section-head p { color: #c4bcb0; max-width: 640px; }
+.calc h2 .accent { color: var(--rust-light); }
+.calc .section-head p { color: #d8cdb6; max-width: 640px; }
+.calc .eyebrow { color: var(--teal-light); }
 
 .calc-wrap {
   display: grid;
@@ -383,18 +459,20 @@ p { color: var(--ink-soft); }
   margin-top: 40px;
   align-items: start;
 }
-.calc-controls {
-  background: #1f1f1f;
-  border: 2px solid #2e2a24;
+.calc-controls,
+.calc-results {
+  background: #2a231d;
+  border: 2px solid #443830;
   padding: 32px;
 }
 .calc-field { margin-bottom: 22px; }
 .calc-field label {
   display: block;
-  font-size: 12px;
-  letter-spacing: 0.15em;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #b3a896;
+  color: var(--teal-light);
   margin-bottom: 10px;
   font-weight: 600;
 }
@@ -403,9 +481,9 @@ p { color: var(--ink-soft); }
   width: 100%;
   padding: 14px 16px;
   background: var(--ink);
-  border: 2px solid #3d362c;
+  border: 2px solid #443830;
   color: var(--paper);
-  font-family: inherit;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 17px;
   font-weight: 600;
   transition: border-color 0.15s;
@@ -416,10 +494,10 @@ p { color: var(--ink-soft); }
 .calc-field input:focus,
 .calc-field select:focus {
   outline: none;
-  border-color: var(--red);
+  border-color: var(--rust-light);
 }
 .calc-field select {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23d62828' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23e8704c' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 16px center;
   padding-right: 44px;
@@ -430,12 +508,7 @@ p { color: var(--ink-soft); }
   font-style: italic;
   margin-top: -10px;
   margin-bottom: 22px;
-}
-
-.calc-results {
-  background: #1f1f1f;
-  border: 2px solid #2e2a24;
-  padding: 32px;
+  line-height: 1.55;
 }
 .calc-total {
   display: flex;
@@ -443,22 +516,23 @@ p { color: var(--ink-soft); }
   align-items: baseline;
   margin-bottom: 24px;
   padding-bottom: 18px;
-  border-bottom: 1px solid #3d362c;
+  border-bottom: 1px dashed #443830;
 }
 .calc-total-num {
-  font-family: 'Bevan', serif;
-  font-size: 42px;
-  color: var(--red);
+  font-family: 'Anton', sans-serif;
+  font-size: 48px;
+  color: var(--rust-light);
   line-height: 1;
+  letter-spacing: 0.02em;
 }
 .calc-total-lbl {
-  font-size: 12px;
-  letter-spacing: 0.15em;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #b3a896;
+  color: var(--teal-light);
   font-weight: 600;
 }
-
 .size-row {
   display: grid;
   grid-template-columns: 60px 1fr 60px;
@@ -475,21 +549,23 @@ p { color: var(--ink-soft); }
 }
 .size-bar-track {
   height: 22px;
-  background: #2a2520;
+  background: #1a1411;
   position: relative;
   overflow: hidden;
 }
 .size-bar-fill {
   height: 100%;
-  background: var(--red);
+  background: var(--teal-light);
   transition: width 0.45s cubic-bezier(.4,0,.2,1);
 }
+.size-row:nth-child(odd) .size-bar-fill { background: var(--rust-light); }
 .size-count {
-  font-family: 'Bevan', serif;
-  font-size: 22px;
+  font-family: 'Anton', sans-serif;
+  font-size: 26px;
   color: var(--paper);
   text-align: right;
   line-height: 1;
+  letter-spacing: 0.02em;
 }
 
 .calc-actions {
@@ -506,21 +582,20 @@ p { color: var(--ink-soft); }
   background: var(--paper);
   color: var(--ink);
   border-color: var(--paper);
-  box-shadow: 4px 4px 0 var(--red);
+  box-shadow: 4px 4px 0 var(--rust);
 }
 .btn-light:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--red);
+  box-shadow: 6px 6px 0 var(--rust);
 }
 .btn-ghost {
   background: transparent;
   color: var(--paper);
-  border-color: #3d362c;
+  border-color: #443830;
 }
 .btn-ghost:hover {
   border-color: var(--paper);
 }
-/* Stacked button: top label + secondary subtitle on a second line */
 .btn-stacked {
   flex-direction: column;
   gap: 2px;
@@ -528,38 +603,44 @@ p { color: var(--ink-soft); }
   line-height: 1.15;
 }
 .btn-stacked-top {
-  font-size: 15px;
-  font-weight: 700;
+  font-family: 'Anton', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
   letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 .btn-stacked-sub {
-  font-size: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.10em;
   opacity: 0.78;
+  text-transform: uppercase;
 }
+
 .copied-msg {
   font-size: 13px;
-  color: var(--red);
+  color: var(--rust-light);
   font-weight: 600;
   margin-top: 12px;
   opacity: 0;
   transition: opacity 0.3s;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  font-family: 'JetBrains Mono', monospace;
 }
 .copied-msg.show { opacity: 1; }
 
 .empty-state {
   padding: 32px 8px;
-  color: #8a8071;
+  color: #a89e88;
   font-size: 15px;
   font-style: italic;
   text-align: center;
-  border: 1px dashed #3d362c;
-  background: rgba(0,0,0,0.15);
+  border: 1px dashed #443830;
+  background: rgba(0,0,0,0.18);
 }
-.empty-state strong { color: var(--paper); font-style: normal; }
+.empty-state strong { color: var(--paper); font-style: normal; font-family: 'Anton', sans-serif; font-weight: 400; letter-spacing: 0.05em; }
 #sizeRows.in .size-row { animation: rowFade 0.45s ease-out backwards; }
 #sizeRows.in .size-row:nth-child(1) { animation-delay: 0.00s; }
 #sizeRows.in .size-row:nth-child(2) { animation-delay: 0.06s; }
@@ -573,13 +654,11 @@ p { color: var(--ink-soft); }
 }
 
 /* ===== GALLERY ===== */
-.gallery {
-  padding: 90px 0;
-}
+.gallery { padding: 90px 0; }
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 14px;
   margin-top: 48px;
 }
 .gallery-item {
@@ -595,30 +674,26 @@ p { color: var(--ink-soft); }
   object-fit: cover;
   transition: transform 0.5s;
 }
-.gallery-item:hover img { transform: scale(1.06); }
-.gallery-item.tall { aspect-ratio: 1; }
-.gallery-item.wide { aspect-ratio: 1; }
+.gallery-item:hover img { transform: scale(1.05); }
 
 /* ===== ABOUT ===== */
 .about {
   padding: 90px 0;
-  background: var(--paper-warm);
+  background: var(--paper-deep);
   border-top: 3px solid var(--ink);
 }
 .about-grid {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1.05fr 1fr;
   gap: 64px;
   align-items: center;
 }
-.about p {
-  font-size: 18px;
-  margin-bottom: 18px;
-}
+.about p { font-size: 18px; margin-bottom: 18px; }
+
 .about-stats {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2px;
+  gap: 0;
   margin-top: 32px;
   background: var(--ink);
   border: 2px solid var(--ink);
@@ -626,31 +701,50 @@ p { color: var(--ink-soft); }
 .stat-cell {
   background: var(--paper);
   padding: 24px 22px;
+  border: 1px solid var(--ink);
+  margin: -1px;
 }
 .stat-num {
-  font-family: 'Bevan', serif;
-  font-size: 38px;
-  color: var(--red);
+  font-family: 'Anton', sans-serif;
+  font-size: 42px;
+  color: var(--teal);
   line-height: 1;
+  letter-spacing: 0.02em;
 }
+.stat-cell:nth-child(2n) .stat-num { color: var(--rust); }
 .stat-lbl {
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--ink-soft);
   font-weight: 600;
   margin-top: 8px;
 }
-.about-photo {
-  border: 3px solid var(--ink);
-  box-shadow: -10px 10px 0 var(--red);
+
+.about-photo-wrap {
+  position: relative;
   aspect-ratio: 4/5;
+}
+.about-photo {
+  position: absolute;
+  inset: 0;
+  border: 3px solid var(--ink);
   overflow: hidden;
+  z-index: 2;
+  background: var(--paper);
 }
 .about-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.about-photo-ghost {
+  position: absolute;
+  inset: 0;
+  background: var(--rust);
+  transform: translate(-14px, 14px);
+  z-index: 1;
 }
 
 /* ===== CONTACT ===== */
@@ -659,56 +753,63 @@ p { color: var(--ink-soft); }
   background: var(--ink);
   color: var(--paper);
 }
+.contact .eyebrow { color: var(--rust-light); }
 .contact h2 { color: var(--paper); }
+
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 56px;
   margin-top: 40px;
 }
-.contact-info p { color: #c4bcb0; font-size: 18px; margin-bottom: 28px; max-width: 460px; }
+.contact-info p { color: #d8cdb6; font-size: 18px; margin-bottom: 28px; max-width: 460px; }
 .contact-block {
   margin-bottom: 26px;
   padding-bottom: 26px;
-  border-bottom: 1px solid #3d362c;
+  border-bottom: 1px dashed #443830;
 }
 .contact-block:last-child { border-bottom: none; }
 .contact-lbl {
+  font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #b3a896;
+  color: var(--teal-light);
   font-weight: 600;
   margin-bottom: 8px;
 }
 .contact-val {
-  font-family: 'Bevan', serif;
-  font-size: 28px;
-  line-height: 1.1;
+  font-family: 'Anton', sans-serif;
+  font-size: 30px;
+  line-height: 1.05;
   color: var(--paper);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 .contact-val a { color: var(--paper); transition: color 0.2s; }
-.contact-val a:hover { color: var(--red); }
+.contact-val a:hover { color: var(--rust-light); }
 .contact-sub {
   display: block;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: #b3a896;
-  margin-top: 6px;
-  font-weight: 400;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--teal-light);
+  margin-top: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .contact-card {
-  background: #1f1f1f;
-  border: 2px solid #2e2a24;
+  background: #2a231d;
+  border: 2px solid #443830;
   padding: 36px;
 }
 .contact-card h3 {
   color: var(--paper);
-  font-size: 28px;
+  font-size: 32px;
   margin-bottom: 14px;
 }
-.contact-card p { color: #c4bcb0; font-size: 16px; margin-bottom: 24px; }
+.contact-card p { color: #d8cdb6; font-size: 16px; margin-bottom: 24px; }
 .contact-card .btn {
   width: 100%;
   margin-bottom: 12px;
@@ -716,10 +817,12 @@ p { color: var(--ink-soft); }
 
 /* ===== FOOTER ===== */
 .footer {
-  background: #0a0a0a;
-  color: #b3a896;
+  background: #0e0a07;
+  color: #a89e88;
   padding: 36px 0;
-  font-size: 14px;
+  font-size: 13px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.04em;
 }
 .footer-inner {
   display: flex;
@@ -728,7 +831,7 @@ p { color: var(--ink-soft); }
   flex-wrap: wrap;
   gap: 16px;
 }
-.footer a { color: var(--red-light); }
+.footer a { color: var(--rust-light); }
 .footer a:hover { color: var(--paper); }
 
 /* ===== RESPONSIVE ===== */
@@ -742,23 +845,20 @@ p { color: var(--ink-soft); }
   }
   .service-grid { grid-template-columns: 1fr; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-  .gallery-item.wide { grid-column: span 2; }
-  .gallery-item.tall { grid-row: auto; aspect-ratio: 1; }
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
   .nav-links a.nav-cta {
     padding: 9px 14px;
-    font-size: 13px;
+    font-size: 11px;
   }
-  /* On narrow phones the mark is the whole brand — drop the wordmark text */
   .brand-full { display: none; }
   .brand-mark { height: 38px; }
   .brand { gap: 0; }
-  .hero { padding: 40px 0 60px; }
-  .hero-photo { box-shadow: 8px 8px 0 var(--red); }
-  .about-photo { box-shadow: -6px 6px 0 var(--red); }
-  .hero-stats { gap: 20px; flex-wrap: wrap; }
-  .hero-stat .num { font-size: 28px; }
+
+  .hero { padding: 50px 0 70px; }
+  .hero-photo .photo-ghost { transform: translate(10px, 10px); }
+  .about-photo-ghost { transform: translate(-10px, 10px); }
+  .hero-stats { gap: 24px; flex-wrap: wrap; }
 
   .nav-links.open {
     display: flex;
@@ -774,19 +874,14 @@ p { color: var(--ink-soft); }
   }
   .nav-links.open a {
     padding: 14px 0;
-    font-size: 17px;
-    border-bottom: 1px solid #e8dfd0;
+    font-size: 14px;
+    border-bottom: 1px dashed var(--ink);
   }
   .nav-links.open a:last-child { border-bottom: none; }
 
-  /* Disable hover effects on touch */
-  .service-card:hover,
-  .btn-primary:hover {
-    transform: none;
-    box-shadow: 4px 4px 0 var(--ink);
-  }
-  .service-card:hover { box-shadow: none; }
+  .service-card:hover { transform: none; box-shadow: none; }
   .gallery-item:hover img { transform: none; }
+  .btn-primary:hover { transform: none; box-shadow: 4px 4px 0 var(--ink); }
 }
 
 @media (max-width: 480px) {
@@ -795,23 +890,21 @@ p { color: var(--ink-soft); }
   .services, .calc, .gallery, .about, .contact { padding: 64px 0; }
   .service-card, .calc-controls, .calc-results, .contact-card { padding: 24px; }
   .hero-cta .btn { width: 100%; }
-  .gallery-grid { grid-template-columns: 1fr; gap: 10px; }
-  .gallery-item.wide { grid-column: auto; aspect-ratio: 1; }
+  .gallery-grid { grid-template-columns: 1fr; gap: 12px; }
   .calc-actions { flex-direction: column; }
   .calc-actions .btn { width: 100%; }
 }
 
-/* ===== ANIMATIONS ===== */
+/* Animations */
 .fade-up {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(20px);
   transition: opacity 0.7s, transform 0.7s;
 }
 .fade-up.in {
   opacity: 1;
   transform: none;
 }
-
 @media (prefers-reduced-motion: reduce) {
   .fade-up { opacity: 1; transform: none; }
   .size-bar-fill { transition: none; }
@@ -830,8 +923,8 @@ p { color: var(--ink-soft); }
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#services">Services</a>
-      <a href="#estimator">Order Estimator</a>
-      <a href="#work">Recent Work</a>
+      <a href="#estimator">Estimator</a>
+      <a href="#work">Work</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
       <a href="tel:+15097583043" class="nav-cta">(509) 758-3043</a>
@@ -847,7 +940,7 @@ p { color: var(--ink-soft); }
       <span class="eyebrow">Clarkston, WA · Family-owned since 2001</span>
       <h1>
         <span class="strike">Iron-on letters from the mall.</span>
-        Put your logo on <span class="red">something good.</span>
+        Put your <span class="rust">logo</span> on something <span class="teal">good.</span>
       </h1>
       <p class="hero-sub">
         Custom screenprinting, embroidery, vinyl, and graphic design — done in-house, by people who answer their own phones.
@@ -863,7 +956,11 @@ p { color: var(--ink-soft); }
       </div>
     </div>
     <div class="hero-photo">
-      <img src="images/sp-05.jpg" alt="Stack of finished custom-printed t-shirts at North West Design" loading="eager" />
+      <div class="photo-ghost"></div>
+      <div class="photo-frame">
+        <img src="images/sp-05.jpg" alt="Stack of finished custom-printed t-shirts at North West Design" loading="eager" />
+      </div>
+      <div class="photo-tag">Est. 2001</div>
     </div>
   </div>
 </header>
@@ -872,43 +969,43 @@ p { color: var(--ink-soft); }
 <section class="services" id="services">
   <div class="container">
     <div class="section-head fade-up">
-      <span class="eyebrow">What We Do</span>
+      <span class="eyebrow">What we do</span>
       <h2>Four things, all done right.</h2>
       <p>We're not trying to be everything. We do custom apparel and graphics for the Lewis-Clark Valley and beyond — and we've been doing it since the year the iPod came out.</p>
     </div>
     <div class="service-grid">
 
       <article class="service-card fade-up">
-        <span class="service-num">01</span>
+        <span class="service-num">01 / SP</span>
         <div class="service-icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg>
         </div>
         <h3>Screenprinting</h3>
         <p>One shirt or ten thousand. Sharp inks, durable cure, color matched to whatever your designer dreamed up. The thing we're known for.</p>
       </article>
 
       <article class="service-card fade-up">
-        <span class="service-num">02</span>
+        <span class="service-num">02 / EM</span>
         <div class="service-icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg>
         </div>
         <h3>Embroidery</h3>
         <p>Hats, polos, jackets, blankets. Stitched in-house — not farmed out. It looks professional because it is.</p>
       </article>
 
       <article class="service-card fade-up">
-        <span class="service-num">03</span>
+        <span class="service-num">03 / VG</span>
         <div class="service-icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8M12 14v8M2 12h8M14 12h8"/><circle cx="12" cy="12" r="3"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8M12 14v8M2 12h8M14 12h8"/><circle cx="12" cy="12" r="3"/></svg>
         </div>
         <h3>Vinyl Decals</h3>
         <p>Truck windows, helmets, tumblers, storefronts. If the surface is smooth, we'll put your logo on it.</p>
       </article>
 
       <article class="service-card fade-up">
-        <span class="service-num">04</span>
+        <span class="service-num">04 / GD</span>
         <div class="service-icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
         </div>
         <h3>Graphic Design</h3>
         <p>No logo yet? Got one but it looks like clip art? Our in-house designer can help. (Honest opinions are free.)</p>
@@ -924,7 +1021,7 @@ p { color: var(--ink-soft); }
     <div class="section-head fade-up">
       <span class="eyebrow">Order Estimator</span>
       <h2>Sizing 50 shirts? <span class="accent">Don't&nbsp;guess.</span></h2>
-      <p class="calc-sub">Tell us how many you need and who they're for. We'll suggest a size breakdown that won't leave you with a stack of unworn 4XLs in your garage.</p>
+      <p>Tell us how many you need and who they're for. We'll suggest a size breakdown that won't leave you with a stack of unworn 4XLs in your garage.</p>
     </div>
 
     <div class="calc-wrap">
@@ -968,7 +1065,7 @@ p { color: var(--ink-soft); }
             <span class="calc-total-num" id="totalNum">—</span>
             <span class="calc-total-lbl" style="margin-left: 12px;" id="audienceLbl">Awaiting calculation</span>
           </div>
-          <button id="copyBtn" class="btn btn-ghost" style="padding: 10px 16px; font-size: 13px; display: none;" type="button">Copy</button>
+          <button id="copyBtn" class="btn btn-ghost" style="padding: 10px 16px; font-size: 11px; display: none;" type="button">Copy</button>
         </div>
         <div id="sizeRows" class="empty">
           <div class="empty-state">Enter your quantity and audience, then press <strong>Calculate</strong>.</div>
@@ -988,7 +1085,7 @@ p { color: var(--ink-soft); }
       <p>A small slice of what's come out of the shop lately. The rest is on backs and ball caps all over the Valley.</p>
     </div>
     <div class="gallery-grid">
-      <a class="gallery-item tall fade-up" href="images/sp-02.jpg" target="_blank" rel="noopener"><img src="images/sp-02.jpg" alt="Custom screenprinted apparel" loading="lazy" /></a>
+      <a class="gallery-item fade-up" href="images/sp-02.jpg" target="_blank" rel="noopener"><img src="images/sp-02.jpg" alt="Custom screenprinted apparel" loading="lazy" /></a>
       <a class="gallery-item fade-up" href="images/sp-01.jpg" target="_blank" rel="noopener"><img src="images/sp-01.jpg" alt="Echo Zone screenprinted shirts" loading="lazy" /></a>
       <a class="gallery-item fade-up" href="images/em-01.jpg" target="_blank" rel="noopener"><img src="images/em-01.jpg" alt="Embroidered apparel sample" loading="lazy" /></a>
       <a class="gallery-item fade-up" href="images/sp-03.jpg" target="_blank" rel="noopener"><img src="images/sp-03.jpg" alt="Custom screenprinting work" loading="lazy" /></a>
@@ -1005,8 +1102,8 @@ p { color: var(--ink-soft); }
 <section class="about" id="about">
   <div class="container about-grid">
     <div class="fade-up">
-      <span class="eyebrow">Who We Are</span>
-      <h2 style="margin: 14px 0 24px;">Family shop. Twenty-five years. One zip code.</h2>
+      <span class="eyebrow">Who we are</span>
+      <h2 style="margin: 16px 0 24px;">Family shop. Twenty-five years. One zip code.</h2>
       <p>We've been a family-owned shop in Clarkston since 2001, working out of a building just off Fleshman Way. We print t-shirts, embroider ball caps, cut vinyl, and design logos for everyone from little league teams to fun runs to local businesses that need a thousand hoodies by Friday.</p>
       <p>We do the work in-house. We answer our own phones. And we'll tell you straight if your idea isn't going to print well. That's it. That's the pitch.</p>
 
@@ -1017,8 +1114,11 @@ p { color: var(--ink-soft); }
         <div class="stat-cell"><div class="stat-num">Quick</div><div class="stat-lbl">Turnaround</div></div>
       </div>
     </div>
-    <div class="about-photo fade-up">
-      <img src="images/sp-04.jpg" alt="North West Design's print work, Clarkston, WA" loading="lazy" />
+    <div class="about-photo-wrap fade-up">
+      <div class="about-photo-ghost"></div>
+      <div class="about-photo">
+        <img src="images/sp-04.jpg" alt="North West Design's print work, Clarkston, WA" loading="lazy" />
+      </div>
     </div>
   </div>
 </section>
@@ -1027,7 +1127,7 @@ p { color: var(--ink-soft); }
 <section class="contact" id="contact">
   <div class="container">
     <div class="section-head fade-up">
-      <span class="eyebrow">Get in Touch</span>
+      <span class="eyebrow">Get in touch</span>
       <h2>Stop by, or just call.</h2>
     </div>
 
@@ -1049,12 +1149,12 @@ p { color: var(--ink-soft); }
 
         <div class="contact-block">
           <div class="contact-lbl">Bill Pay</div>
-          <div class="contact-val" style="font-size: 18px; font-family: 'Inter', sans-serif; font-weight: 600;"><a href="https://northwestdesign.securepayments.cardpointe.com/pay" target="_blank" rel="noopener">Pay your invoice online →</a></div>
+          <div class="contact-val" style="font-size: 18px; font-family: 'Space Grotesk', sans-serif; font-weight: 600; text-transform: none; letter-spacing: 0;"><a href="https://northwestdesign.securepayments.cardpointe.com/pay" target="_blank" rel="noopener">Pay your invoice online →</a></div>
         </div>
       </div>
 
       <div class="contact-card fade-up">
-        <h3>Ready to Print?</h3>
+        <h3>Ready to print?</h3>
         <p>Easiest way to get started: pick up the phone. We'll talk through your project, give you a real quote, and get you on the calendar.</p>
         <a href="tel:+15097583043" class="btn btn-primary">Call (509) 758-3043</a>
         <a href="#estimator" class="btn btn-outline" style="background: transparent; color: var(--paper); border-color: var(--paper);">Use the Order Estimator</a>
@@ -1066,7 +1166,7 @@ p { color: var(--ink-soft); }
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
   <div class="container footer-inner">
-    <div>© <span id="year"></span> North West Design · 1142 16th Ave, Clarkston, WA · (509) 758-3043</div>
+    <div>© <span id="year"></span> NORTH WEST DESIGN · 1142 16TH AVE, CLARKSTON, WA · (509) 758-3043</div>
     <div>Made with care by <a href="https://www.kd70.com">KD70</a></div>
   </div>
 </footer>
@@ -1093,20 +1193,17 @@ const io = new IntersectionObserver((entries) => {
 document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
 
 // ===== SIZE CALCULATOR =====
-// Industry-standard distribution percentages by audience type.
-// Source: averaged from major blank-apparel suppliers (SanMar, alphabroder, S&S Activewear).
 const DISTRIBUTIONS = {
-  'adult-unisex': { label: 'Adult Unisex',   sizes: ['S','M','L','XL','2XL','3XL'],         pct: [7, 25, 30, 22, 11, 5] },
-  'mens':         { label: "Men's / Crew",   sizes: ['S','M','L','XL','2XL','3XL'],         pct: [5, 20, 30, 25, 14, 6] },
-  'womens':       { label: "Women's Fit",    sizes: ['XS','S','M','L','XL','2XL'],          pct: [8, 22, 30, 25, 11, 4] },
-  'youth':        { label: 'Youth',          sizes: ['YXS','YS','YM','YL','YXL'],           pct: [5, 22, 35, 28, 10] },
-  'athletic':     { label: 'Athletic Event', sizes: ['S','M','L','XL','2XL','3XL'],         pct: [15, 30, 28, 17, 8, 2] },
-  'corporate':    { label: 'Corporate',      sizes: ['S','M','L','XL','2XL','3XL'],         pct: [8, 22, 30, 22, 12, 6] }
+  'adult-unisex': { label: 'Adult Unisex',   sizes: ['S','M','L','XL','2XL','3XL'], pct: [7, 25, 30, 22, 11, 5] },
+  'mens':         { label: "Men's / Crew",   sizes: ['S','M','L','XL','2XL','3XL'], pct: [5, 20, 30, 25, 14, 6] },
+  'womens':       { label: "Women's Fit",    sizes: ['XS','S','M','L','XL','2XL'],  pct: [8, 22, 30, 25, 11, 4] },
+  'youth':        { label: 'Youth',          sizes: ['YXS','YS','YM','YL','YXL'],   pct: [5, 22, 35, 28, 10] },
+  'athletic':     { label: 'Athletic Event', sizes: ['S','M','L','XL','2XL','3XL'], pct: [15, 30, 28, 17, 8, 2] },
+  'corporate':    { label: 'Corporate',      sizes: ['S','M','L','XL','2XL','3XL'], pct: [8, 22, 30, 22, 12, 6] }
 };
 
 function distribute(total, key) {
   const d = DISTRIBUTIONS[key];
-  // Multiply, get fractional parts, and use largest-remainder method to make sums match exactly.
   const raw = d.pct.map(p => total * p / 100);
   const floored = raw.map(r => Math.floor(r));
   let used = floored.reduce((a, b) => a + b, 0);
@@ -1119,7 +1216,6 @@ function distribute(total, key) {
     used += 1;
     r += 1;
   }
-  // If somehow over, trim from smallest
   while (used > total) {
     let minIdx = -1;
     for (let i = 0; i < out.length; i++) {
@@ -1162,7 +1258,6 @@ function calculate() {
       <span class="size-count">${c}</span>
     </div>`;
   }).join('');
-  // force reflow so the animation re-fires on subsequent calculations
   void sizeRowsEl.offsetWidth;
   sizeRowsEl.classList.add('in');
   copyBtn.style.display = 'inline-flex';
@@ -1184,9 +1279,8 @@ This is an estimate based on standard distributions — actual order can be adju
 }
 
 async function copyToClipboard(text) {
-  try {
-    await navigator.clipboard.writeText(text);
-  } catch (e) {
+  try { await navigator.clipboard.writeText(text); }
+  catch (e) {
     const ta = document.createElement('textarea');
     ta.value = text;
     document.body.appendChild(ta);
@@ -1205,7 +1299,6 @@ copyBtn.addEventListener('click', async () => {
 
 calcBtn.addEventListener('click', calculate);
 
-// Pressing Enter in the quantity field triggers Calculate (no accidental form submit, no live updates)
 qtyEl.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
     e.preventDefault();

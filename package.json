@@ -1,0 +1,15 @@
+{
+  "name": "nwd-redesign",
+  "version": "1.0.0",
+  "private": true,
+  "description": "North West Design — custom apparel shop website (Clarkston, WA).",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  },
+  "scripts": {
+    "start": "serve -l tcp://0.0.0.0:${PORT:-8080} --no-clipboard"
+  }
+}
