@@ -23,3 +23,6 @@ build/
 
 # Stale concept folder (sandbox couldn't unlink — safe to delete locally)
 v2/
+
+# Build artifacts left over from sandbox renders
+og-template.html
