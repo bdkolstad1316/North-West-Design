@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1200px; height: 630px; overflow: hidden; }
+body {
+  background: #f5f5f5;
+  background-image:
+    radial-gradient(rgba(26,26,26,0.025) 1px, transparent 1px),
+    radial-gradient(rgba(26,26,26,0.018) 1px, transparent 1px);
+  background-size: 5px 5px, 13px 13px;
+  font-family: 'Space Grotesk', sans-serif;
+  color: #1a1a1a;
+}
+.frame { width:1200px; height:630px; padding:56px 64px; display:flex; flex-direction:column; justify-content:space-between; position:relative; }
+.top-row { display:flex; align-items:center; gap:22px; }
+.brand-mark { height:90px; width:auto; }
+.brand-text { font-family:'Anton',sans-serif; font-size:52px; letter-spacing:0.02em; text-transform:uppercase; line-height:1; color:#1a1a1a; }
+.eyebrow-row { position:absolute; top:56px; right:64px; display:flex; align-items:center; gap:12px; font-family:'JetBrains Mono',monospace; font-size:16px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#a81d1d; }
+.eyebrow-row::before { content:""; width:14px; height:14px; background:#d62828; border-radius:50%; }
+.headline-block { margin-top:-10px; }
+.headline { font-family:'Anton',sans-serif; font-size:152px; letter-spacing:0.005em; text-transform:uppercase; line-height:0.92; color:#1a1a1a; }
+.headline .red { color:#d62828; }
+.services-row { margin-top:30px; font-family:'JetBrains Mono',monospace; font-size:18px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#1a1a1a; display:flex; flex-wrap:wrap; gap:22px; }
+.services-row span { display:inline-flex; align-items:center; gap:14px; }
+.services-row span:not(:last-child)::after { content:""; width:6px; height:6px; background:#d62828; border-radius:50%; margin-left:8px; }
+.bottom-row { display:flex; justify-content:space-between; align-items:flex-end; border-top:2px solid #1a1a1a; padding-top:22px; }
+.bottom-left { font-family:'JetBrains Mono',monospace; font-size:17px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#1a1a1a; line-height:1.5; }
+.bottom-left .phone { font-family:'Anton',sans-serif; font-size:36px; letter-spacing:0.02em; color:#d62828; display:block; margin-top:6px; }
+.bottom-right { font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:#6e6e6e; text-align:right; }
+</style></head><body>
+<div class="frame">
+  <div class="top-row">
+    <img src="images/nwd-mark.png" class="brand-mark" alt="NWD"/>
+    <div class="brand-text">North West Design</div>
+  </div>
+  <div class="eyebrow-row">Established 2001 &middot; Clarkston, WA</div>
+  <div class="headline-block">
+    <div class="headline">Custom apparel,<br><span class="red">done&nbsp;right.</span></div>
+    <div class="services-row">
+      <span>Screen Printing</span><span>Embroidery</span><span>Vinyl</span><span>Graphic&nbsp;Design</span>
+    </div>
+  </div>
+  <div class="bottom-row">
+    <div class="bottom-left">Locally-owned &nbsp;&middot;&nbsp; In-house &nbsp;&middot;&nbsp; Quick turnaround
+      <span class="phone">(509) 758-3043</span>
+    </div>
+    <div class="bottom-right">nwtees.com<br>1142 16th Ave</div>
+  </div>
+</div>
+</body></html>
