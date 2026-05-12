@@ -158,11 +158,9 @@ p { color: var(--ink-soft); }
   display: block;
 }
 .brand-full {
-  font-family: 'Anton', sans-serif;
-  font-size: 22px;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  line-height: 1;
+  height: 32px;
+  width: auto;
+  display: block;
 }
 
 .nav-links {
@@ -649,7 +647,7 @@ p { color: var(--ink-soft); }
   flex-wrap: wrap;
   gap: 16px;
 }
-.footer a { color: var(--red-light); }
+.footer a { color: var(--red-light); text-decoration: underline; text-underline-offset: 2px; }
 .footer a:hover { color: var(--paper); }
 
 /* ===== RESPONSIVE ===== */
@@ -1026,7 +1024,8 @@ body.lb-open { overflow: hidden; }
   <div class="container nav-inner">
     <a href="#top" class="brand" aria-label="North West Design — home">
       <img src="images/nwd-mark-sm.png" alt="" class="brand-mark" width="100" height="40" />
-      <span class="brand-full">NORTH WEST DESIGN</span>
+      <img src="images/nwd-wordmark.svg" alt="North West Design" class="brand-full" />
+
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#services">Services</a>
@@ -1039,6 +1038,7 @@ body.lb-open { overflow: hidden; }
   </div>
 </nav>
 
+<main>
 <!-- ===== HERO ===== -->
 <header class="hero" id="top">
   <div class="container hero-grid">
@@ -1216,7 +1216,7 @@ body.lb-open { overflow: hidden; }
           <form class="contact-form" id="quoteForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" novalidate>
             <input type="hidden" name="access_key" value="83766270-4bc6-4883-9a16-667315d34965" />
             <!-- Honeypot: humans don't see it, bots fill it -->
-            <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" />
+            <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
             <div class="form-row">
               <div class="form-field">
@@ -1287,6 +1287,7 @@ body.lb-open { overflow: hidden; }
   <button class="lightbox-close" id="lbClose" type="button" aria-label="Close">×</button>
   <div class="lightbox-counter" id="lbCounter">1 / 9</div>
 </div>
+</main>
 
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
