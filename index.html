@@ -1092,7 +1092,24 @@ p { color: var(--ink-soft); }
   font-weight: 600;
 }
 .contact-form .form-status.sending { color: var(--label-dim); }
-.contact-form .form-status.error { color: var(--red-light); }
+.contact-form .form-status.error {
+  color: #ff7575;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.5;
+  padding: 12px 14px;
+  border-left: 3px solid var(--red-light);
+  margin-top: 14px;
+}
+.contact-form .form-status.error a {
+  color: #ff7575;
+  text-decoration: underline;
+  font-weight: 700;
+}
+.contact-form .form-status.error a:hover { color: #ffffff; }
 .form-success { text-align: center; padding: 20px 0; }
 .form-success .success-mark {
   width: 64px;
@@ -1714,12 +1731,14 @@ if (quoteForm) {
         qfSuccess.hidden = false;
         qfSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       } else {
-        qfStatus.textContent = (result.message || 'Something went wrong.') + ' Try again or email nwdesign2001@gmail.com.';
-        qfStatus.className = 'form-status error';
-        qfSubmit.disabled = false;
+        showFormError();
       }
     } catch (err) {
-      qfStatus.textContent = 'Connection error. Try again or email nwdesign2001@gmail.com.';
+      showFormError();
+    }
+
+    function showFormError() {
+      qfStatus.innerHTML = 'Form is temporarily down. Email us at <a href="mailto:nwdesign2001@gmail.com">nwdesign2001@gmail.com</a> or call <a href="tel:+15097583043">(509) 758-3043</a> &mdash; we\'ll take it from there.';
       qfStatus.className = 'form-status error';
       qfSubmit.disabled = false;
     }
