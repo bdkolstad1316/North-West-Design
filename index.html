@@ -941,6 +941,180 @@ p { color: var(--ink-soft); }
   html { scroll-behavior: auto; }
 }
 
+/* ===== CONTACT FORM ===== */
+.contact-form { margin-top: 4px; }
+.contact-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.contact-form .form-field { margin-bottom: 16px; }
+.contact-form .form-row .form-field { margin-bottom: 0; }
+.contact-form label {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--label-dim);
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+.contact-form label .req-mark {
+  color: var(--red-light);
+  margin-left: 2px;
+}
+.contact-form label .optional {
+  color: #9a9a9a;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0.04em;
+  font-style: italic;
+  font-size: 10.5px;
+  margin-left: 4px;
+}
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+  width: 100%;
+  padding: 11px 14px;
+  background: var(--ink);
+  border: 2px solid #3a3a3a;
+  color: var(--paper);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 0;
+  transition: border-color 0.15s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--muted);
+  font-weight: 400;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--red);
+}
+.contact-form textarea {
+  resize: vertical;
+  min-height: 110px;
+  line-height: 1.5;
+}
+.contact-form .radio-group {
+  display: flex;
+  gap: 18px;
+  padding-top: 8px;
+}
+.contact-form .radio-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--paper);
+  text-transform: none;
+  letter-spacing: 0;
+  margin: 0;
+}
+.contact-form .radio-option input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #3a3a3a;
+  background: var(--ink);
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  margin: 0;
+  transition: border-color 0.15s;
+}
+.contact-form .radio-option input[type="radio"]:checked { border-color: var(--red); }
+.contact-form .radio-option input[type="radio"]:checked::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: var(--red);
+  border-radius: 50%;
+}
+.contact-form input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  background: var(--ink);
+  border: 2px dashed #3a3a3a;
+  color: var(--label-dim);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+}
+.contact-form input[type="file"]::file-selector-button {
+  background: #3a3a3a;
+  color: var(--paper);
+  border: none;
+  padding: 7px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  margin-right: 12px;
+  transition: background 0.15s, color 0.15s;
+}
+.contact-form input[type="file"]::file-selector-button:hover {
+  background: var(--red);
+  color: #ffffff;
+}
+.honeypot {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0;
+}
+.contact-form .form-submit { width: 100%; margin-top: 6px; }
+.contact-form .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.contact-form .form-status {
+  min-height: 22px;
+  margin-top: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.contact-form .form-status.sending { color: var(--label-dim); }
+.contact-form .form-status.error { color: var(--red-light); }
+.form-success { text-align: center; padding: 20px 0; }
+.form-success .success-mark {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 18px;
+  background: var(--red);
+  color: #ffffff;
+  font-family: 'Anton', sans-serif;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--ink);
+  line-height: 1;
+}
+.form-success h3 { color: var(--paper); margin-bottom: 12px; }
+.form-success p { color: var(--label-dim); font-size: 15px; line-height: 1.5; margin: 0; }
+@media (max-width: 600px) {
+  .contact-form .form-row { grid-template-columns: 1fr; gap: 16px; }
+  .contact-form .form-row .form-field { margin-bottom: 0; }
+}
+
 /* ===== LIGHTBOX ===== */
 .lightbox {
   position: fixed;
@@ -1289,10 +1463,71 @@ body.lb-open { overflow: hidden; }
       </div>
 
       <div class="contact-card fade-up">
-        <h3>Ready to print?</h3>
-        <p>Easiest way to get started: pick up the phone. We'll talk through your project, give you a real quote, and get you on the calendar.</p>
-        <a href="tel:+15097583043" class="btn btn-primary">Call (509) 758-3043</a>
-        <a href="#teecalc" class="btn btn-outline" style="background: transparent; color: var(--paper); border-color: var(--paper);">Use Tee-Calc</a>
+        <div class="form-wrap">
+          <h3>Get a Quote</h3>
+          <p>Tell us about your project — sizes, designs, deadlines, whatever you have. We'll be in touch within one business day.</p>
+
+          <form class="contact-form" id="quoteForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" novalidate>
+            <input type="hidden" name="access_key" value="83766270-4bc6-4883-9a16-667315d34965" />
+            <!-- Honeypot: humans don't see it, bots fill it -->
+            <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" />
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="qf-name">Name <span class="req-mark">*</span></label>
+                <input type="text" id="qf-name" name="name" required autocomplete="name" />
+              </div>
+              <div class="form-field">
+                <label for="qf-email">Email <span class="req-mark">*</span></label>
+                <input type="email" id="qf-email" name="email" required autocomplete="email" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="qf-phone">Phone <span class="optional">Optional</span></label>
+                <input type="tel" id="qf-phone" name="phone" autocomplete="tel" />
+              </div>
+              <div class="form-field">
+                <label>Preferred Contact</label>
+                <div class="radio-group">
+                  <label class="radio-option">
+                    <input type="radio" name="preferred_contact" value="Email" checked />
+                    <span>Email</span>
+                  </label>
+                  <label class="radio-option">
+                    <input type="radio" name="preferred_contact" value="Phone" />
+                    <span>Phone</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="qf-qty">Approximate quantity <span class="optional">If you know</span></label>
+              <input type="text" id="qf-qty" name="quantity" placeholder="e.g. 50 shirts" />
+            </div>
+
+            <div class="form-field">
+              <label for="qf-details">Project details <span class="req-mark">*</span></label>
+              <textarea id="qf-details" name="details" rows="4" required placeholder="Sizes, design ideas, deadlines, anything else we should know"></textarea>
+            </div>
+
+            <div class="form-field">
+              <label for="qf-file">Logo or image <span class="optional">Optional &middot; 25MB max</span></label>
+              <input type="file" id="qf-file" name="attachment" accept="image/*,.pdf,.ai,.psd,.eps" />
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit" id="qfSubmit">Send Inquiry</button>
+            <div class="form-status" id="qfStatus" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+
+        <div class="form-success" id="qfSuccess" hidden>
+          <div class="success-mark">&#10003;</div>
+          <h3>Thanks for reaching out.</h3>
+          <p>We got your inquiry and we'll be in touch within one business day. If it's urgent, give us a call at (509) 758-3043.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1449,6 +1684,47 @@ qtyEl.addEventListener('keydown', (e) => {
     calculate();
   }
 });
+
+// ===== CONTACT FORM =====
+const quoteForm = document.getElementById('quoteForm');
+const qfStatus = document.getElementById('qfStatus');
+const qfSubmit = document.getElementById('qfSubmit');
+const qfSuccess = document.getElementById('qfSuccess');
+const qfWrap = quoteForm?.closest('.contact-card')?.querySelector('.form-wrap');
+
+if (quoteForm) {
+  quoteForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!quoteForm.checkValidity()) {
+      quoteForm.reportValidity();
+      return;
+    }
+    qfStatus.textContent = 'Sending…';
+    qfStatus.className = 'form-status sending';
+    qfSubmit.disabled = true;
+    const formData = new FormData(quoteForm);
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+      const result = await response.json();
+      if (result.success) {
+        qfWrap.hidden = true;
+        qfSuccess.hidden = false;
+        qfSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } else {
+        qfStatus.textContent = (result.message || 'Something went wrong.') + ' Try again or email nwdesign2001@gmail.com.';
+        qfStatus.className = 'form-status error';
+        qfSubmit.disabled = false;
+      }
+    } catch (err) {
+      qfStatus.textContent = 'Connection error. Try again or email nwdesign2001@gmail.com.';
+      qfStatus.className = 'form-status error';
+      qfSubmit.disabled = false;
+    }
+  });
+}
 
 // ===== LIGHTBOX =====
 const lightbox = document.getElementById('lightbox');
