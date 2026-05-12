@@ -26,3 +26,9 @@ v2/
 
 # Build artifacts left over from sandbox renders
 og-template.html
+.gbp-report-build.html
+
+# GBP client deliverables — for handoff, not for the website repo
+GBP/
+GBP.zip
+NWD-GBP-Report.pdf
