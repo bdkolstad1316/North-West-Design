@@ -909,7 +909,19 @@ p { color: var(--ink-soft); }
   line-height: 1;
 }
 .form-success h3 { color: var(--paper); margin-bottom: 12px; }
-.form-success p { color: var(--label-dim); font-size: 15px; line-height: 1.5; margin: 0; }
+.form-success p { color: var(--label-dim); font-size: 15px; line-height: 1.5; margin: 0 0 24px; }
+.qf-another {
+  background: transparent;
+  color: var(--paper);
+  border-color: var(--paper);
+  padding: 12px 24px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+}
+.qf-another:hover {
+  background: var(--paper);
+  color: var(--ink);
+}
 @media (max-width: 600px) {
   .contact-form .form-row { grid-template-columns: 1fr; gap: 16px; }
   .contact-form .form-row .form-field { margin-bottom: 0; }
@@ -1215,6 +1227,8 @@ body.lb-open { overflow: hidden; }
 
           <form class="contact-form" id="quoteForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data" novalidate>
             <input type="hidden" name="access_key" value="83766270-4bc6-4883-9a16-667315d34965" />
+            <!-- Subject is set dynamically in JS at submit time using the customer's name -->
+            <input type="hidden" name="subject" id="qf-subject" value="New Quote Request — NWD Website" />
             <!-- Honeypot: humans don't see it, bots fill it -->
             <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
@@ -1273,6 +1287,7 @@ body.lb-open { overflow: hidden; }
           <div class="success-mark">&#10003;</div>
           <h3>Thanks for reaching out.</h3>
           <p>We got your inquiry and we'll be in touch within one business day. If it's urgent, give us a call at (509) 758-3043.</p>
+          <button type="button" class="btn btn-outline qf-another" id="qfAnother">Send another</button>
         </div>
       </div>
     </div>
@@ -1332,6 +1347,22 @@ if (quoteForm) {
       quoteForm.reportValidity();
       return;
     }
+    // Client-side guard: file size must be under 5MB (basic Web3Forms uploader limit)
+    const fileInput = document.getElementById('qf-file');
+    if (fileInput?.files?.[0]) {
+      const sizeMB = fileInput.files[0].size / (1024 * 1024);
+      if (sizeMB > 5) {
+        qfStatus.innerHTML = 'That file is ' + sizeMB.toFixed(1) + 'MB — our form accepts up to 5MB. Email it to <a href="mailto:nwdesign2001@gmail.com">nwdesign2001@gmail.com</a> instead.';
+        qfStatus.className = 'form-status error';
+        return;
+      }
+    }
+    // Build a dynamic subject line that includes the customer's name
+    const nameVal = (quoteForm.querySelector('[name="name"]')?.value || '').trim();
+    const subjectField = document.getElementById('qf-subject');
+    if (subjectField && nameVal) {
+      subjectField.value = `New Quote Request from ${nameVal} — NWD Website`;
+    }
     qfStatus.textContent = 'Sending…';
     qfStatus.className = 'form-status sending';
     qfSubmit.disabled = true;
@@ -1347,9 +1378,11 @@ if (quoteForm) {
         qfSuccess.hidden = false;
         qfSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       } else {
+        console.error('Web3Forms submission failed:', result);
         showFormError();
       }
     } catch (err) {
+      console.error('Form fetch error:', err);
       showFormError();
     }
 
@@ -1359,6 +1392,21 @@ if (quoteForm) {
       qfSubmit.disabled = false;
     }
   });
+
+  // "Send another" — reset the form and return to fillable state
+  const qfAnother = document.getElementById('qfAnother');
+  if (qfAnother) {
+    qfAnother.addEventListener('click', () => {
+      quoteForm.reset();
+      qfStatus.innerHTML = '';
+      qfStatus.className = 'form-status';
+      qfSubmit.disabled = false;
+      qfSuccess.hidden = true;
+      qfWrap.hidden = false;
+      quoteForm.querySelector('[name="name"]')?.focus();
+      qfWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  }
 }
 
 // ===== LIGHTBOX =====
