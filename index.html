@@ -739,6 +739,10 @@ p { color: var(--ink-soft); }
 }
 .footer a { color: var(--red-light); text-decoration: underline; text-underline-offset: 2px; }
 .footer a:hover { color: var(--paper); }
+.footer-social { display: flex; gap: 14px; align-items: center; }
+.footer-social a { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; text-decoration: none; border-radius: 4px; transition: color 0.13s, background 0.13s; }
+.footer-social a:hover { color: var(--paper); background: rgba(255,255,255,0.06); }
+.footer-social svg { width: 18px; height: 18px; fill: currentColor; display: block; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
@@ -1282,6 +1286,16 @@ body.lb-open { overflow: hidden; }
           <!-- Payment processor URL pending — NWD is transitioning processors. Drop the new URL into href and remove the onclick. -->
           <div class="contact-val" style="font-size: 18px; font-family: 'Space Grotesk', sans-serif; font-weight: 600; text-transform: none; letter-spacing: 0;"><a href="#" onclick="event.preventDefault(); return false;" rel="noopener">Pay your invoice online →</a></div>
         </div>
+
+        <div class="contact-block">
+          <div class="contact-lbl">Follow</div>
+          <div class="contact-val" style="font-size: 18px; font-family: 'Space Grotesk', sans-serif; font-weight: 600; text-transform: none; letter-spacing: 0;">
+            <a href="https://www.facebook.com/northwestdesign1/" target="_blank" rel="noopener">Facebook</a>
+            &nbsp;·&nbsp;
+            <a href="https://www.instagram.com/nwdesign509" target="_blank" rel="noopener">Instagram</a>
+          </div>
+          <span class="contact-sub">See what we've been making lately</span>
+        </div>
       </div>
 
       <div class="contact-card fade-up">
@@ -1372,6 +1386,14 @@ body.lb-open { overflow: hidden; }
 <footer class="footer">
   <div class="container footer-inner">
     <div>© <span id="year"></span> NORTH WEST DESIGN · 1142 16TH AVE STE A, CLARKSTON, WA · (509) 758-3043</div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/northwestdesign1/" target="_blank" rel="noopener" aria-label="North West Design on Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13.5 21.5v-8.25h2.78l.42-3.23H13.5V7.96c0-.93.26-1.57 1.6-1.57h1.7V3.5c-.3-.04-1.31-.13-2.49-.13-2.46 0-4.14 1.5-4.14 4.26v2.38H7.39v3.23h2.78v8.25h3.33z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/nwdesign509" target="_blank" rel="noopener" aria-label="North West Design on Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.81.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.17.42.37 1.06.42 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.81-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.17-1.06.37-2.23.42-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.81-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.17-.42-.37-1.06-.42-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.81.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.17 1.06-.37 2.23-.42C8.42 2.17 8.8 2.16 12 2.16zm0 5.18a4.66 4.66 0 100 9.32 4.66 4.66 0 000-9.32zm0 7.69a3.03 3.03 0 110-6.06 3.03 3.03 0 010 6.06zm5.93-7.87a1.09 1.09 0 11-2.18 0 1.09 1.09 0 012.18 0z"/></svg>
+      </a>
+    </div>
     <div>Made with care by <a href="https://www.kd70.com">KD70</a></div>
   </div>
 </footer>
