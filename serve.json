@@ -5,7 +5,7 @@
       "headers": [
         {
           "key": "Link",
-          "value": "</sitemap.xml>; rel=\"sitemap\", </llms.txt>; rel=\"llms-txt\", </robots.txt>; rel=\"robots\""
+          "value": "</sitemap.xml>; rel=\"sitemap\", </llms.txt>; rel=\"alternate\"; type=\"text/markdown\""
         }
       ]
     },
