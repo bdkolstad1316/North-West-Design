@@ -518,6 +518,31 @@ p { color: var(--ink-soft); }
 .carousel-track::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 3px; }
 .carousel-track:focus { outline: none; }
 .carousel-track:focus-visible { outline: 3px solid var(--red); outline-offset: 4px; }
+
+/* Global keyboard focus: brand-consistent ring on every interactive element */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 3px;
+}
+
+/* Skip-to-main link — hidden until focused */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 12px 18px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border: 2px solid var(--red);
+  z-index: 1000;
+  transition: top 0.15s;
+}
+.skip-link:focus { top: 12px; }
 .carousel-card {
   scroll-snap-align: start;
   display: block;
@@ -1130,6 +1155,7 @@ body.lb-open { overflow: hidden; }
 </style>
 </head>
 <body>
+<a href="#main" class="skip-link">Skip to main content</a>
 
 <!-- ===== NAV ===== -->
 <nav class="nav">
@@ -1151,7 +1177,7 @@ body.lb-open { overflow: hidden; }
   </div>
 </nav>
 
-<main>
+<main id="main">
 <!-- ===== HERO ===== -->
 <header class="hero" id="top">
   <div class="container hero-grid">
@@ -1176,7 +1202,7 @@ body.lb-open { overflow: hidden; }
     <div class="hero-photo">
       <div class="photo-ghost"></div>
       <div class="photo-frame">
-        <img src="images/nwd-collage.jpg" alt="Collage of finished work from North West Design — embroidered hats and jackets, screen-printed tees, koozies, stickers, totes, and signs" loading="eager" />
+        <img src="images/nwd-collage.jpg" alt="Collage of finished work from North West Design — embroidered hats and jackets, screen-printed tees, koozies, stickers, totes, and signs" width="1200" height="1500" loading="eager" />
       </div>
       <div class="photo-tag">Est. 2001</div>
     </div>
@@ -1202,7 +1228,7 @@ body.lb-open { overflow: hidden; }
     <div class="about-photo-wrap fade-up">
       <div class="about-photo-ghost"></div>
       <div class="about-photo">
-        <img src="images/nwd-shop.jpg" alt="Inside North West Design — embroidery machines, screen-printing press, racks of apparel, the shop building in Clarkston, and finished pieces for local clients" loading="lazy" />
+        <img src="images/nwd-shop.jpg" alt="Inside North West Design — embroidery machines, screen-printing press, racks of apparel, the shop building in Clarkston, and finished pieces for local clients" width="1200" height="1500" loading="lazy" />
       </div>
     </div>
   </div>
@@ -1231,23 +1257,23 @@ body.lb-open { overflow: hidden; }
     <div class="carousel" role="region" aria-label="Recent work — scrollable carousel">
       <button class="carousel-arrow carousel-prev" id="carouselPrev" type="button" aria-label="Previous">&lsaquo;</button>
       <div class="carousel-track" id="carouselTrack" tabindex="0">
-        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-01.jpg"><img src="images/gallery/gallery-01.jpg" alt="Full back embroidery — Whitley Fence" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Full Back Embroidery</span></a>
-        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-02.jpg"><img src="images/gallery/gallery-02.jpg" alt="Embroidered cap" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Embroidered cap</span></a>
-        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-03.jpg"><img src="images/gallery/gallery-03.jpg" alt="Custom hat run" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Custom hat run</span></a>
-        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-04.jpg"><img src="images/gallery/gallery-04.jpg" alt="Event tee — 5K run" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Event tee</span></a>
-        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-05.jpg"><img src="images/gallery/gallery-05.jpg" alt="Embroidered hat and jacket set" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Embroidered Hat &amp; Jacket Set</span></a>
-        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-06.jpg"><img src="images/gallery/gallery-06.jpg" alt="Screen-printed tee" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Screen-printed tee</span></a>
-        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-07.jpg"><img src="images/gallery/gallery-07.jpg" alt="Branded koozies" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Branded koozies</span></a>
-        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-08.jpg"><img src="images/gallery/gallery-08.jpg" alt="Embroidered hat" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Embroidered Hat</span></a>
-        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-09.jpg"><img src="images/gallery/gallery-09.jpg" alt="Custom backpack" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Custom backpack</span></a>
-        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-10.jpg"><img src="images/gallery/gallery-10.jpg" alt="School spirit caps" loading="lazy" /><span class="carousel-caption" aria-hidden="true">School spirit caps</span></a>
-        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-11.jpg"><img src="images/gallery/gallery-11.jpg" alt="Fire Rescue cap" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Fire Rescue cap</span></a>
-        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-12.jpg"><img src="images/gallery/gallery-12.jpg" alt="Die cut printed stickers" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Die Cut Printed Stickers</span></a>
-        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-13.jpg"><img src="images/gallery/gallery-13.jpg" alt="Custom tee print" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Custom tee print</span></a>
-        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-14.jpg"><img src="images/gallery/gallery-14.jpg" alt="Branded hat batch" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Branded hat batch</span></a>
-        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-15.jpg"><img src="images/gallery/gallery-15.jpg" alt="DTF printed tees" loading="lazy" /><span class="carousel-caption" aria-hidden="true">DTF Printed Tees</span></a>
-        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-16.jpg"><img src="images/gallery/gallery-16.jpg" alt="Branded tote bag" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Branded tote</span></a>
-        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-17.jpg"><img src="images/gallery/gallery-17.jpg" alt="Custom baby gear" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Custom baby gear</span></a>
+        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-01.jpg"><img src="images/gallery/gallery-01.jpg" alt="Full back embroidery — Whitley Fence" width="1200" height="1500" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Full Back Embroidery</span></a>
+        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-02.jpg"><img src="images/gallery/gallery-02.jpg" alt="Embroidered cap" width="1200" height="1500" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Embroidered cap</span></a>
+        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-03.jpg"><img src="images/gallery/gallery-03.jpg" alt="Custom hat run" width="1200" height="1500" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Custom hat run</span></a>
+        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-04.jpg"><img src="images/gallery/gallery-04.jpg" alt="Event tee — 5K run" width="1200" height="1500" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Event tee</span></a>
+        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-05.jpg"><img src="images/gallery/gallery-05.jpg" alt="Embroidered hat and jacket set" width="1200" height="1500" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Embroidered Hat &amp; Jacket Set</span></a>
+        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-06.jpg"><img src="images/gallery/gallery-06.jpg" alt="Screen-printed tee" width="1200" height="1500" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Screen-printed tee</span></a>
+        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-07.jpg"><img src="images/gallery/gallery-07.jpg" alt="Branded koozies" width="1200" height="1500" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Branded koozies</span></a>
+        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-08.jpg"><img src="images/gallery/gallery-08.jpg" alt="Embroidered hat" width="1200" height="1500" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Embroidered Hat</span></a>
+        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-09.jpg"><img src="images/gallery/gallery-09.jpg" alt="Custom backpack" width="1200" height="1500" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Custom backpack</span></a>
+        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-10.jpg"><img src="images/gallery/gallery-10.jpg" alt="School spirit caps" width="1200" height="1500" loading="lazy" /><span class="carousel-caption" aria-hidden="true">School spirit caps</span></a>
+        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-11.jpg"><img src="images/gallery/gallery-11.jpg" alt="Fire Rescue cap" width="1200" height="1500" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Fire Rescue cap</span></a>
+        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-12.jpg"><img src="images/gallery/gallery-12.jpg" alt="Die cut printed stickers" width="1200" height="1500" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Die Cut Printed Stickers</span></a>
+        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-13.jpg"><img src="images/gallery/gallery-13.jpg" alt="Custom tee print" width="1200" height="1500" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Custom tee print</span></a>
+        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-14.jpg"><img src="images/gallery/gallery-14.jpg" alt="Branded hat batch" width="1200" height="1500" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Branded hat batch</span></a>
+        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-15.jpg"><img src="images/gallery/gallery-15.jpg" alt="DTF printed tees" width="1200" height="1500" loading="lazy" /><span class="carousel-caption" aria-hidden="true">DTF Printed Tees</span></a>
+        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-16.jpg"><img src="images/gallery/gallery-16.jpg" alt="Branded tote bag" width="1200" height="1500" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Branded tote</span></a>
+        <a class="carousel-card gallery-item fade-up" href="images/gallery/gallery-17.jpg"><img src="images/gallery/gallery-17.jpg" alt="Custom baby gear" width="1200" height="1500" loading="lazy" /><span class="carousel-caption" aria-hidden="true">Custom baby gear</span></a>
       </div>
       <button class="carousel-arrow carousel-next" id="carouselNext" type="button" aria-label="Next">&rsaquo;</button>
     </div>
@@ -1346,7 +1372,7 @@ body.lb-open { overflow: hidden; }
 
             <div class="form-field">
               <label for="qf-qty">Approximate quantity <span class="optional">If you know</span></label>
-              <input type="text" id="qf-qty" name="quantity" placeholder="e.g. 50 shirts" />
+              <input type="number" inputmode="numeric" min="1" id="qf-qty" name="quantity" placeholder="e.g. 50" />
             </div>
 
             <div class="form-field">
@@ -1592,6 +1618,17 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') { e.preventDefault(); closeLightbox(); }
   else if (e.key === 'ArrowLeft')  { e.preventDefault(); navigate(-1); }
   else if (e.key === 'ArrowRight') { e.preventDefault(); navigate(1); }
+  else if (e.key === 'Tab') {
+    // Focus trap: cycle through prev → next → close, never escape the modal
+    const focusables = [lbPrev, lbNext, lbClose];
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault(); first.focus();
+    }
+  }
 });
 </script>
 
