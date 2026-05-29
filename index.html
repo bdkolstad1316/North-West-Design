@@ -553,6 +553,7 @@ button:focus-visible {
 .carousel-card:hover { transform: translateY(-3px); }
 .carousel-card img {
   width: 100%;
+  height: auto; /* override HTML height attr; let aspect-ratio drive layout */
   aspect-ratio: 1;
   object-fit: cover;
   display: block;
