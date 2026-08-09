@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>NWD — Why It's Time to Switch Payment Providers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #f7f3ee;
+  --paper-deep: #ece5d5;
+  --ink: #1d1814;
+  --ink-soft: #3a3128;
+  --red: #d62828;
+  --red-deep: #a81d1d;
+  --muted: #7a6f5e;
+  --label-dim: #6b6357;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+@page { size: letter; margin: 0; }
+html, body {
+  font-family: 'Space Grotesk', -apple-system, sans-serif;
+  color: var(--ink-soft);
+  background: var(--paper);
+  font-size: 10pt;
+  line-height: 1.45;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.page {
+  width: 8.5in;
+  height: 11in;
+  padding: 0.55in 0.75in 0.75in;
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+}
+h1 {
+  font-family: 'Anton', 'Impact', sans-serif;
+  font-weight: 400;
+  color: var(--ink);
+  text-transform: uppercase;
+  line-height: 0.96;
+  font-size: 32pt;
+  letter-spacing: 0.01em;
+  margin-bottom: 10pt;
+}
+h1 .red { color: var(--red); }
+h3 {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  color: var(--ink);
+  text-transform: uppercase;
+  font-size: 13pt;
+  letter-spacing: 0.02em;
+  margin-bottom: 6pt;
+}
+p { margin-bottom: 8pt; color: var(--ink-soft); }
+p strong { font-weight: 600; color: var(--ink); }
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14pt;
+}
+.brand-left { display: flex; align-items: center; gap: 10pt; }
+.brand-mark { height: 34pt; }
+.brand-text {
+  font-family: 'Anton', sans-serif;
+  font-size: 15pt;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  line-height: 1;
+}
+.brand-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--label-dim);
+  text-align: right;
+  line-height: 1.7;
+}
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8.5pt;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red-deep);
+  display: flex;
+  align-items: center;
+  gap: 10pt;
+  margin-bottom: 10pt;
+}
+.eyebrow::before { content: ""; width: 7pt; height: 7pt; background: var(--red); border-radius: 50%; }
+.eyebrow::after { content: ""; flex: 1; height: 1pt; background: var(--ink); max-width: 60pt; }
+
+.stat-row {
+  display: flex;
+  gap: 20pt;
+  margin: 12pt 0 12pt;
+  border-top: 2pt solid var(--ink);
+  border-bottom: 2pt solid var(--ink);
+  padding: 10pt 0;
+}
+.stat-cell { flex: 1; }
+.stat-cell .stat-num {
+  font-family: 'Anton', sans-serif;
+  font-size: 20pt;
+  color: var(--red);
+  line-height: 1;
+  white-space: nowrap;
+}
+.stat-cell:nth-child(2n) .stat-num { color: var(--ink); }
+.stat-cell .stat-lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--label-dim);
+  margin-top: 3pt;
+}
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 18pt; margin-top: 4pt; }
+
+.callout {
+  background: var(--ink);
+  padding: 11pt 14pt;
+  margin-top: 10pt;
+}
+.callout .callout-lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #e8704c;
+  margin-bottom: 6pt;
+}
+.callout p { color: #d8cdb6; font-size: 10pt; line-height: 1.5; margin-bottom: 0; }
+.callout p strong { color: var(--paper); }
+
+ul.ticks { list-style: none; margin: 4pt 0 0; }
+ul.ticks li {
+  position: relative;
+  padding-left: 14pt;
+  font-size: 10pt;
+  line-height: 1.45;
+  margin-bottom: 5pt;
+  color: var(--ink-soft);
+}
+ul.ticks li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5pt;
+  width: 6pt;
+  height: 6pt;
+  background: var(--red);
+  border-radius: 50%;
+}
+ul.ticks li strong { font-weight: 600; color: var(--ink); }
+
+.alt-box {
+  border: 1.5pt solid var(--ink);
+  padding: 10pt 14pt;
+  margin-top: 10pt;
+  background: var(--paper-deep);
+}
+.alt-box .alt-lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8pt;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--red-deep);
+  margin-bottom: 5pt;
+}
+.alt-box p { font-size: 9.5pt; margin-bottom: 0; }
+
+.page-footer {
+  position: absolute;
+  bottom: 0.4in;
+  left: 0.75in;
+  right: 0.75in;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7.5pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--label-dim);
+  border-top: 1pt solid var(--ink);
+  padding-top: 7pt;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="brand-row">
+    <div class="brand-left">
+      <img src="images/nwd-mark.png" class="brand-mark" alt="NWD" />
+      <span class="brand-text">North West Design</span>
+    </div>
+    <div class="brand-meta">
+      Prepared for Danielle &amp; the NWD team<br>
+      Brian Kolstad · KD70 · August 2026
+    </div>
+  </div>
+
+  <span class="eyebrow">Recommendation · Payments</span>
+  <h1>One counter. One website.<br><span class="red">One system.</span></h1>
+
+  <p><strong>The short version:</strong> NWD's payment setup has been moved three times in four months — off CardPointe, onto Echelon's HYFIN page, then onto iPOSpays, the last time without notice. The online bill-pay link on nwtees.com simply died until someone caught it, and every fix runs through a support case and somebody else's schedule. That isn't bad luck — it's the structure: the card reader and the online payments are separate products stitched together by a reseller chain, and when any layer changes, the shop is the last to know.</p>
+
+  <p>A modern provider replaces that chain with <strong>one account that runs both sides of the business</strong> — the terminal at the counter, plus invoices, payment links, and the bill-pay page online — in one dashboard NWD controls directly.</p>
+
+  <h3>The pick: <span style="color:var(--red)">Square</span></h3>
+
+  <div class="stat-row">
+    <div class="stat-cell"><div class="stat-num">2.6% + 15¢</div><div class="stat-lbl">In person, at the counter</div></div>
+    <div class="stat-cell"><div class="stat-num">3.3% + 30¢</div><div class="stat-lbl">Online &amp; invoices</div></div>
+    <div class="stat-cell"><div class="stat-num">$0</div><div class="stat-lbl">Monthly fee</div></div>
+    <div class="stat-cell"><div class="stat-num">$299</div><div class="stat-lbl">Terminal, one-time</div></div>
+  </div>
+
+  <div class="two-col">
+    <ul class="ticks">
+      <li><strong>Everything in one place.</strong> Counter sales, emailed invoices with a built-in Pay button, and a permanent payment link for the website.</li>
+      <li><strong>The website link never breaks again.</strong> The pay page belongs to NWD's own account — there is no back-end gateway swap that can kill it.</li>
+    </ul>
+    <ul class="ticks">
+      <li><strong>Self-serve settings.</strong> Change a timer, a price, or a receipt from a phone. No case numbers, no walk-throughs.</li>
+      <li><strong>No contract.</strong> Next-business-day deposits, cancel anytime, hardware is a one-time purchase.</li>
+    </ul>
+  </div>
+
+  <div class="alt-box">
+    <div class="alt-lbl">The honest trade-off — and the alternative</div>
+    <p>Square's flat rate may run slightly above a negotiated merchant-account rate on some cards. What it buys is no middlemen, no surprise migrations, and software the shop runs itself. If shaving fees matters more than polish, <strong>Helcim</strong> ($0/month, interchange-plus — roughly 0.4% + 8¢ over cost in person) is the budget pick: same one-account model, fewer hardware options, two-day deposits.</p>
+  </div>
+
+  <div class="callout">
+    <div class="callout-lbl">What switching takes</div>
+    <p>Sign-up takes about 15 minutes, the terminal ships in days, and the website update is a same-day change. Run Square alongside the current setup until the first deposits clear, and check the Echelon paperwork for termination terms before closing the old account. <strong>Nothing about this switch takes the shop offline.</strong></p>
+  </div>
+
+  <div class="page-footer">
+    <span>North West Design · Payments</span>
+    <span>KD70 · Page 1 of 1</span>
+  </div>
+
+</div>
+</body>
+</html>
