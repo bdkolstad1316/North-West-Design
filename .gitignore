@@ -34,3 +34,15 @@ GBP/
 GBP.zip
 NWD-GBP-Report.pdf
 NWD-Payment-Action-Sheet.pdf
+
+# Internal deliverables, audits, and build files — NEVER at repo root:
+# the repo root IS the deployed website (Railway serves everything tracked)
+deliverables/
+handoff/
+NWD-*.pdf
+AGENT-READINESS.md
+CODE-REVIEW.md
+MOBILE-READINESS.md
+.og-build.html
+.wordmark-test.html
+.payments-rationale-build.html
