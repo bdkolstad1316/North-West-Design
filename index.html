@@ -39,6 +39,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-EGaQip6ZtKlUf0vzqAuj5.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
 <style>
 :root {
   /* Kraft + ink poster palette */
@@ -1438,6 +1445,23 @@ navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => na
 // ===== YEAR =====
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// ===== PLAUSIBLE GOALS =====
+// One delegated listener; the event name is the goal, `location` says where on the page it fired.
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[href]');
+  if (!a) return;
+  const href = a.getAttribute('href');
+  const region = a.closest('nav, header, section, footer');
+  const location = region ? (region.id || region.tagName.toLowerCase()) : 'page';
+  let event = null, props = { location };
+  if (href.startsWith('tel:')) event = 'Phone Tap';
+  else if (href.startsWith('mailto:')) event = 'Email Click';
+  else if (href.includes('ipospays.com')) event = 'Bill Pay Click';
+  else if (href.includes('facebook.com')) { event = 'Social Click'; props.network = 'Facebook'; }
+  else if (href.includes('instagram.com')) { event = 'Social Click'; props.network = 'Instagram'; }
+  if (event) plausible(event, { props });
+});
+
 // ===== FADE UP =====
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {
@@ -1490,6 +1514,7 @@ if (quoteForm) {
       });
       const result = await response.json();
       if (result.success) {
+        plausible('Quote Form Submitted');
         qfWrap.hidden = true;
         qfSuccess.hidden = false;
         qfSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
