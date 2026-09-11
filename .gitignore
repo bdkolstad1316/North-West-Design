@@ -4,6 +4,11 @@
 .LSOverride
 ._*
 
+# Secrets: set these in Railway's Variables tab instead
+.env
+.env.*
+!.env.example
+
 # Editor / IDE
 .vscode/
 .idea/
