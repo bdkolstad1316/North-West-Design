@@ -40,8 +40,13 @@ GBP.zip
 NWD-GBP-Report.pdf
 NWD-Payment-Action-Sheet.pdf
 
-# Internal deliverables, audits, and build files — NEVER at repo root:
-# the repo root IS the deployed website (Railway serves everything tracked)
+# Internal previews and renders — never tracked
+Claude outputs/
+
+# Internal deliverables, audits, and build files.
+# Anything tracked inside public/ is served live at nwtees.com; keep these out
+# of public/ entirely. Root-level files are no longer served, but these are
+# still client deliverables that belong in Cowork/iCloud, not the repo.
 deliverables/
 handoff/
 NWD-*.pdf

@@ -15,16 +15,22 @@ Nearly the entire site is one file: `index.html` (~57 KB, CSS and JS inline).
 - Phone: (509) 758-3043, Mon–Fri 8a–5p
 - Email: nwdesign2001@gmail.com
 - Deliverables (reports, brand files, source photos) live in: TODO — confirm
-  the Cowork/iCloud path. They must NOT go in this repo; see the note under
-  "Repo root is the website" below.
+  the Cowork/iCloud path. They must NOT go in this repo; see "What is public"
+  below.
 
 ## Run locally
 ```
 npm ci          # matches package-lock.json exactly — do not use npm install
 npm start       # http://localhost:8080  (override with PORT=8123 npm start)
 ```
-`npm start` runs `serve` bound to `0.0.0.0:$PORT`. Response headers for
-`llms.txt`, `robots.txt`, and `sitemap.xml` come from `serve.json`.
+`npm start` runs `serve` against `public/`, bound to `0.0.0.0:$PORT`.
+
+`serve` looks for its config inside the directory it serves, which would put
+`serve.json` on the public web at `/serve.json`. So it stays at the repo root
+and is passed in with `--config ../serve.json` (the path is resolved relative
+to `public/`). If you change the served directory, fix that relative path too.
+`serve.json` sets the `Link` header and the content types for `llms.txt`,
+`robots.txt`, and `sitemap.xml`.
 
 ## Deploy
 - GitHub: `bdkolstad1316/North-West-Design`, private
@@ -32,12 +38,14 @@ npm start       # http://localhost:8080  (override with PORT=8123 npm start)
 - Live URL: https://nwtees.com
 - Secrets go in Railway's Variables tab. Never commit `.env`.
 
-## Repo root is the website
-Railway serves every tracked file at the repo root, so anything committed here
-is publicly reachable by URL. Audits, PDFs, internal renders, and client
-deliverables do not belong in this repo at any path — `.gitignore` already
-blocks the known offenders. Known exception still outstanding: `Claude outputs/`
-is tracked and therefore live at `nwtees.com/Claude outputs/`.
+## What is public
+`public/` is the website. Every file in it is reachable by URL at nwtees.com,
+and nothing outside it is served — `CLAUDE.md`, `package.json`, `serve.json`,
+and `.gitignore` all 404.
+
+So: site files go in `public/`, everything else stays at the root. Audits,
+PDFs, internal renders, and client deliverables belong in Cowork/iCloud rather
+than the repo at all, and `.gitignore` blocks the known offenders.
 
 ## External services
 - **Web3Forms** — the quote form posts to `api.web3forms.com`. The
