@@ -12,7 +12,7 @@ Nearly the entire site is one file: `index.html` (~57 KB, CSS and JS inline).
 ## Client
 - Name: North West Design — Clarkston, WA
 - Shop: 1142 16th Ave, Ste A, Clarkston, WA 99403
-- Phone: (509) 758-3043, Mon–Fri 8a–5p
+- Phone: (509) 758-3043, Mon–Fri 9a–5p
 - Email: nwdesign2001@gmail.com
 - Deliverables (reports, brand files, source photos) live in: TODO — confirm
   the Cowork/iCloud path. They must NOT go in this repo; see "What is public"

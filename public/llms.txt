@@ -23,7 +23,7 @@ North West Design is a local print and embroidery shop serving the Lewis-Clark V
 
 ## Contact
 
-- Phone: [(509) 758-3043](tel:+15097583043) — Mon–Fri, 8a–5p
+- Phone: [(509) 758-3043](tel:+15097583043) — Mon–Fri, 9a–5p
 - Email: [nwdesign2001@gmail.com](mailto:nwdesign2001@gmail.com) — replies within one business day
 - Shop: 1142 16th Ave, Ste A, Clarkston, WA 99403 (just off Fleshman Way)
 - Pay an invoice online: [api.ipospays.com/v1/sl/j2HIU_100826121606](https://api.ipospays.com/v1/sl/j2HIU_100826121606) — card or eCheck
