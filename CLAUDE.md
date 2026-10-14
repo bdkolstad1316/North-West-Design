@@ -14,9 +14,13 @@ Nearly the entire site is one file: `index.html` (~57 KB, CSS and JS inline).
 - Shop: 1142 16th Ave, Ste A, Clarkston, WA 99403
 - Phone: (509) 758-3043, Mon–Fri 9a–5p
 - Email: nwdesign2001@gmail.com
-- Deliverables (reports, brand files, source photos) live in: TODO — confirm
-  the Cowork/iCloud path. They must NOT go in this repo; see "What is public"
-  below.
+- Contacts: Jason or Amy at the shop email (as of Oct 2026). Danielle Dotson,
+  the original contact, left for SEL on 2026-10-26.
+- Deliverables (reports, handoff archives, GBP assets, audits) live in
+  `~/Developer/_client-files/nwd/`. They must NOT go in this repo; see
+  "What is public" below.
+- Monthly Plausible report pipeline: `_client-files/nwd/deliverables/reports/`
+  (`build_report.py` + fonts; input is a Plausible CSV export zip).
 
 ## Run locally
 ```
@@ -44,8 +48,8 @@ and nothing outside it is served — `CLAUDE.md`, `package.json`, `serve.json`,
 and `.gitignore` all 404.
 
 So: site files go in `public/`, everything else stays at the root. Audits,
-PDFs, internal renders, and client deliverables belong in Cowork/iCloud rather
-than the repo at all, and `.gitignore` blocks the known offenders.
+PDFs, internal renders, and client deliverables belong in
+`~/Developer/_client-files/nwd/` rather than the repo at all, and `.gitignore` blocks the known offenders.
 
 ## External services
 - **Web3Forms** — the quote form posts to `api.web3forms.com`. The
