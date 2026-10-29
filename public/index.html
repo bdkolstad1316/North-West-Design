@@ -688,6 +688,58 @@ button:focus-visible {
   z-index: 1;
 }
 
+/* ===== CATALOG ===== */
+.catalog {
+  padding: 90px 0;
+  background: var(--paper-deep);
+  border-top: 3px solid var(--ink);
+}
+.catalog-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.catalog h2 { margin: 16px 0 24px; }
+.catalog h2 .red { color: var(--red); }
+.catalog p { font-size: 18px; margin-bottom: 18px; }
+.catalog-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 28px; }
+.catalog-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #555;
+  margin: 22px 0 0;
+}
+.catalog-steps {
+  list-style: none;
+  counter-reset: step;
+  background: var(--ink);
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--red);
+}
+.catalog-steps li {
+  counter-increment: step;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  align-items: baseline;
+  gap: 8px;
+  padding: 22px 24px;
+  color: var(--paper);
+  font-size: 17px;
+  border-top: 1px solid #3a3a3a;
+}
+.catalog-steps li:first-child { border-top: 0; }
+.catalog-steps li::before {
+  content: counter(step);
+  font-family: 'Anton', 'Impact', sans-serif;
+  font-size: 34px;
+  line-height: 1;
+  color: var(--red-light);
+}
+.catalog-steps strong { color: #ffffff; font-weight: 600; }
+
 /* ===== CONTACT ===== */
 .contact {
   padding: 90px 0;
@@ -783,6 +835,7 @@ button:focus-visible {
 @media (max-width: 900px) {
   .hero-grid,
   .about-grid,
+  .catalog-grid,
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -834,7 +887,7 @@ button:focus-visible {
 @media (max-width: 480px) {
   body { font-size: 16px; }
   .container { padding: 0 18px; }
-  .services, .gallery, .about, .contact { padding: 64px 0; }
+  .services, .gallery, .about, .catalog, .contact { padding: 64px 0; }
   .service-card, .contact-card { padding: 24px; }
   .hero-cta .btn { width: 100%; }
   .carousel-track { grid-auto-columns: minmax(220px, 80%); }
@@ -1288,6 +1341,28 @@ body.lb-open { overflow: hidden; }
   </div>
 </section>
 
+<!-- ===== CATALOG ===== -->
+<section class="catalog" id="catalog">
+  <div class="container catalog-grid">
+    <div class="fade-up">
+      <span class="eyebrow">Pick your garment</span>
+      <h2>Pick the shirt. <span class="red">We do the rest.</span></h2>
+      <p>Tees, polos, hoodies, jackets, hats, and bags: the whole catalog is open to browse, with photos, colors, and sizes for every style. Find something you like, then tell us which one it is.</p>
+      <p>Prices depend on quantity and how the design gets applied, so we quote each job. Browsing costs nothing.</p>
+      <div class="catalog-cta">
+        <a href="https://www.companycasuals.com" class="btn btn-primary" target="_blank" rel="noopener">Browse the catalog &#8599;</a>
+        <a href="#contact" class="btn btn-outline">Get a Quote</a>
+      </div>
+      <p class="catalog-note">Catalog powered by Company Casuals. Opens in a new tab.</p>
+    </div>
+    <ol class="catalog-steps fade-up">
+      <li><span><strong>Browse.</strong> Look around the catalog and pick a style you like.</span></li>
+      <li><span><strong>Jot down the style number.</strong> It&rsquo;s listed on every product page, and a pasted link works too.</span></li>
+      <li><span><strong>Send it with your quote.</strong> Add it to the form below and we&rsquo;ll come back with pricing and turnaround.</span></li>
+    </ol>
+  </div>
+</section>
+
 <!-- ===== CONTACT ===== -->
 <section class="contact" id="contact">
   <div class="container">
@@ -1384,6 +1459,11 @@ body.lb-open { overflow: hidden; }
             </div>
 
             <div class="form-field">
+              <label for="qf-style">Style # or catalog link <span class="optional">Optional &middot; from our catalog</span></label>
+              <input type="text" id="qf-style" name="catalog_style" placeholder="e.g. PC61, or paste a link" autocomplete="off" />
+            </div>
+
+            <div class="form-field">
               <label for="qf-details">Project details <span class="req-mark">*</span></label>
               <textarea id="qf-details" name="details" rows="4" required placeholder="Sizes, design ideas, deadlines, anything else we should know"></textarea>
             </div>
@@ -1423,6 +1503,7 @@ body.lb-open { overflow: hidden; }
 <footer class="footer">
   <div class="container footer-inner">
     <div>© <span id="year"></span> NORTH WEST DESIGN · 1142 16TH AVE STE A, CLARKSTON, WA · (509) 758-3043</div>
+    <div><a href="#catalog">Browse the catalog</a></div>
     <div class="footer-social">
       <a href="https://www.facebook.com/northwestdesign1/" target="_blank" rel="noopener" aria-label="North West Design on Facebook">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13.5 21.5v-8.25h2.78l.42-3.23H13.5V7.96c0-.93.26-1.57 1.6-1.57h1.7V3.5c-.3-.04-1.31-.13-2.49-.13-2.46 0-4.14 1.5-4.14 4.26v2.38H7.39v3.23h2.78v8.25h3.33z"/></svg>
@@ -1457,6 +1538,7 @@ document.addEventListener('click', (e) => {
   if (href.startsWith('tel:')) event = 'Phone Tap';
   else if (href.startsWith('mailto:')) event = 'Email Click';
   else if (href.includes('ipospays.com')) event = 'Bill Pay Click';
+  else if (href.includes('companycasuals.com')) event = 'Catalog Click';
   else if (href.includes('facebook.com')) { event = 'Social Click'; props.network = 'Facebook'; }
   else if (href.includes('instagram.com')) { event = 'Social Click'; props.network = 'Instagram'; }
   if (event) plausible(event, { props });

@@ -19,6 +19,7 @@ North West Design is a local print and embroidery shop serving the Lewis-Clark V
 - [Services](https://nwtees.com/#services): Overview of what the shop produces.
 - [Recent Work](https://nwtees.com/#work): Gallery of recent custom orders — embroidered hats, screen-printed tees, signage, stickers, koozies, totes.
 - [About / Who We Are](https://nwtees.com/#about): Twenty-five years in one zip code; local production, quick turnaround.
+- [Browse the Catalog](https://nwtees.com/#catalog): Link to the full garment catalog (tees, polos, hoodies, jackets, hats, bags) at CompanyCasuals.com, unpriced. Customers pick a style, then send the style number with a quote request.
 - [Contact](https://nwtees.com/#contact): Phone, email, shop address, online bill pay, social.
 
 ## Contact
@@ -32,6 +33,7 @@ North West Design is a local print and embroidery shop serving the Lewis-Clark V
 
 ## Optional
 
+- The quote form has an optional "Style # or catalog link" field for garments picked from the catalog.
 - Quotes are requested through the form on the contact section of the homepage or by phone/email.
 - Service area: primarily the Lewis-Clark Valley (Clarkston, WA and Lewiston, ID), with shipping available for out-of-area customers.
 - No published price list — every order is custom, so pricing is by quote.
