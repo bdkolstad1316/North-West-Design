@@ -704,12 +704,12 @@ button:focus-visible {
 .catalog h2 .red { color: var(--red); }
 .catalog p { font-size: 18px; margin-bottom: 18px; }
 .catalog-cta { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 28px; }
-.catalog-note {
+.catalog p.catalog-note {
   font-family: 'JetBrains Mono', monospace;
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #555;
+  color: var(--ink-soft);
   margin: 22px 0 0;
 }
 .catalog-steps {
@@ -739,6 +739,9 @@ button:focus-visible {
   color: var(--red-light);
 }
 .catalog-steps strong { color: #ffffff; font-weight: 600; }
+.catalog-steps a { color: var(--red-light); text-decoration: underline; text-underline-offset: 2px; }
+.catalog-steps a:hover { color: #ffffff; }
+#quote { scroll-margin-top: calc(var(--nav-h) + 16px); }
 
 /* ===== CONTACT ===== */
 .contact {
@@ -826,6 +829,7 @@ button:focus-visible {
 }
 .footer a { color: var(--red-light); text-decoration: underline; text-underline-offset: 2px; }
 .footer a:hover { color: var(--paper); }
+.footer-catalog a { display: inline-block; padding: 8px 0; }
 .footer-social { display: flex; gap: 14px; align-items: center; }
 .footer-social a { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; text-decoration: none; border-radius: 4px; transition: color 0.13s, background 0.13s; }
 .footer-social a:hover { color: var(--paper); background: rgba(255,255,255,0.06); }
@@ -1345,20 +1349,20 @@ body.lb-open { overflow: hidden; }
 <section class="catalog" id="catalog">
   <div class="container catalog-grid">
     <div class="fade-up">
-      <span class="eyebrow">Pick your garment</span>
+      <span class="eyebrow">The catalog</span>
       <h2>Pick the shirt. <span class="red">We do the rest.</span></h2>
       <p>Tees, polos, hoodies, jackets, hats, and bags: the whole catalog is open to browse, with photos, colors, and sizes for every style. Find something you like, then tell us which one it is.</p>
       <p>Prices depend on quantity and how the design gets applied, so we quote each job. Browsing costs nothing.</p>
       <div class="catalog-cta">
-        <a href="https://www.companycasuals.com" class="btn btn-primary" target="_blank" rel="noopener">Browse the catalog &#8599;</a>
-        <a href="#contact" class="btn btn-outline">Get a Quote</a>
+        <a href="https://www.companycasuals.com/nwdesign/start.jsp" class="btn btn-primary" target="_blank" rel="noopener">Browse the catalog &#8599;</a>
+        <a href="#quote" class="btn btn-outline">Get a Quote</a>
       </div>
-      <p class="catalog-note">Catalog powered by Company Casuals. Opens in a new tab.</p>
+      <p class="catalog-note">Browse-only: no prices or ordering there, we handle the order. Opens in a new tab.</p>
     </div>
     <ol class="catalog-steps fade-up">
       <li><span><strong>Browse.</strong> Look around the catalog and pick a style you like.</span></li>
-      <li><span><strong>Jot down the style number.</strong> It&rsquo;s listed on every product page, and a pasted link works too.</span></li>
-      <li><span><strong>Send it with your quote.</strong> Add it to the form below and we&rsquo;ll come back with pricing and turnaround.</span></li>
+      <li><span><strong>Jot down the style number.</strong> It&rsquo;s listed on every product page.</span></li>
+      <li><span><strong>Send it with your quote.</strong> Put it in the <a href="#quote">quote form</a> and we&rsquo;ll come back with pricing and turnaround.</span></li>
     </ol>
   </div>
 </section>
@@ -1410,7 +1414,7 @@ body.lb-open { overflow: hidden; }
         </div>
       </div>
 
-      <div class="contact-card fade-up">
+      <div class="contact-card fade-up" id="quote">
         <div class="form-wrap">
           <h3>Get a Quote</h3>
           <p>Tell us about your project — sizes, designs, deadlines, whatever you have. We'll be in touch within one business day.</p>
@@ -1459,8 +1463,8 @@ body.lb-open { overflow: hidden; }
             </div>
 
             <div class="form-field">
-              <label for="qf-style">Style # or catalog link <span class="optional">Optional &middot; from our catalog</span></label>
-              <input type="text" id="qf-style" name="catalog_style" placeholder="e.g. PC61, or paste a link" autocomplete="off" />
+              <label for="qf-style">Style # from the catalog <span class="optional">Optional</span></label>
+              <input type="text" id="qf-style" name="catalog_style" placeholder="e.g. PC61" autocomplete="off" />
             </div>
 
             <div class="form-field">
@@ -1503,7 +1507,7 @@ body.lb-open { overflow: hidden; }
 <footer class="footer">
   <div class="container footer-inner">
     <div>© <span id="year"></span> NORTH WEST DESIGN · 1142 16TH AVE STE A, CLARKSTON, WA · (509) 758-3043</div>
-    <div><a href="#catalog">Browse the catalog</a></div>
+    <div class="footer-catalog"><a href="https://www.companycasuals.com/nwdesign/start.jsp" target="_blank" rel="noopener">Browse the catalog &#8599;</a></div>
     <div class="footer-social">
       <a href="https://www.facebook.com/northwestdesign1/" target="_blank" rel="noopener" aria-label="North West Design on Facebook">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13.5 21.5v-8.25h2.78l.42-3.23H13.5V7.96c0-.93.26-1.57 1.6-1.57h1.7V3.5c-.3-.04-1.31-.13-2.49-.13-2.46 0-4.14 1.5-4.14 4.26v2.38H7.39v3.23h2.78v8.25h3.33z"/></svg>
